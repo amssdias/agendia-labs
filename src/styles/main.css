@@ -1,0 +1,20 @@
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+
+@import './sections/header.css';
+@import './sections/hero.css';
+@import './sections/problems.css';
+@import './sections/transformation.css';
+@import './sections/services.css';
+@import './sections/solutions.css';
+@import './sections/automate.css';
+@import './sections/process.css';
+@import './sections/about.css';
+@import './sections/demo.css';
+@import './sections/value.css';
+@import './sections/first-call.css';
+@import './sections/faq.css';
+@import './sections/contact.css';
+@import './sections/footer.css';

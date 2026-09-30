@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100">
+  <!-- Placeholder: replace with a 1600x1100 screenshot of the n8n lead qualification workflow (see README). -->
+  <defs>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#D5DBE5"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1100" fill="#F6F8FB"/>
+  <rect width="1600" height="1100" fill="url(#dots)"/>
+  <g fill="none" stroke="#93C5FD" stroke-width="4">
+    <path d="M330 550h110M630 550h110M930 550c55 0 55-160 110-160M930 550c55 0 55 160 110 160"/>
+  </g>
+  <g fill="#FFFFFF" stroke="#D5DBE5" stroke-width="3">
+    <rect x="150" y="470" width="180" height="160" rx="24"/>
+    <rect x="450" y="470" width="180" height="160" rx="24"/>
+    <rect x="750" y="470" width="180" height="160" rx="24"/>
+    <rect x="1050" y="310" width="180" height="160" rx="24"/>
+    <rect x="1050" y="630" width="180" height="160" rx="24"/>
+  </g>
+  <g fill="#2563EB">
+    <rect x="210" y="520" width="60" height="60" rx="14"/>
+    <rect x="510" y="520" width="60" height="60" rx="14" fill="#22D3EE"/>
+    <rect x="810" y="520" width="60" height="60" rx="14"/>
+    <rect x="1110" y="360" width="60" height="60" rx="14" fill="#22D3EE"/>
+    <rect x="1110" y="680" width="60" height="60" rx="14"/>
+  </g>
+</svg>

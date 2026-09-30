@@ -1,0 +1,49 @@
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+  gap: 16px;
+}
+
+.problem-card {
+  gap: 12px;
+}
+
+.problem-card .card__title {
+  margin-top: 8px;
+}
+
+.problem-card__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-danger-tint);
+  font-size: 22px;
+  color: var(--color-danger);
+}
+
+.problem-callout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(360px 220px at 100% 0%, rgba(34, 211, 238, 0.22), transparent 70%),
+    linear-gradient(150deg, var(--color-ink), var(--color-navy));
+  color: var(--color-on-dark);
+}
+
+.problem-callout__text {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+
+.problem-callout .btn {
+  align-self: flex-start;
+}

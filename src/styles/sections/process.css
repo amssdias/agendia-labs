@@ -1,0 +1,113 @@
+/* Vertical timeline on small screens, five columns with a horizontal line from 1000px. */
+
+.process {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.process__step {
+  display: flex;
+  gap: 18px;
+  min-width: 0;
+}
+
+.process__marker {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.process__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  font-size: 20px;
+  color: var(--color-on-dark);
+  box-shadow:
+    0 0 0 5px var(--color-surface-alt),
+    0 0 0 6px var(--color-border-strong);
+}
+
+.process__line {
+  flex: 1;
+  width: 1px;
+  min-height: 1px;
+  background: var(--color-border-strong);
+}
+
+.process__step:last-child .process__line {
+  background: transparent;
+}
+
+.process__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 32px;
+}
+
+.process__number {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--color-blue-dark);
+}
+
+.process__title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.process__text {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.process__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: clamp(40px, 5vw, 56px);
+}
+
+.process__cta span {
+  font-size: 14.5px;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 1000px) {
+  .process {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .process__step {
+    flex-direction: column;
+  }
+
+  .process__marker {
+    flex-direction: row;
+  }
+
+  .process__line {
+    width: auto;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-blue-bright), var(--color-border-strong));
+  }
+
+  .process__step:last-child .process__line {
+    background: linear-gradient(90deg, var(--color-blue-bright), rgba(213, 219, 229, 0));
+  }
+
+  .process__body {
+    padding-bottom: 0;
+  }
+}

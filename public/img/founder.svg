@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1150">
+  <!-- Placeholder: replace with a 4:5 photo of André Dias (see README). -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EEF4FF"/>
+      <stop offset="1" stop-color="#F6F8FB"/>
+    </linearGradient>
+  </defs>
+  <rect width="920" height="1150" fill="url(#bg)"/>
+  <circle cx="460" cy="470" r="150" fill="#D5DBE5"/>
+  <path d="M190 1150c0-170 121-300 270-300s270 130 270 300z" fill="#D5DBE5"/>
+</svg>

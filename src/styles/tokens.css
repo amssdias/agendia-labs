@@ -1,0 +1,76 @@
+/*
+ * Design tokens from the Claude Design file.
+ *
+ * Breakpoints (media queries can't read custom properties, so they're listed here instead):
+ *   640px  – ROI calculator goes horizontal
+ *   768px  – sticky mobile booking bar disappears
+ *   860px  – before/after comparison side by side
+ *   900px  – use-case chain, automation recipe and about section go horizontal
+ *   960px  – two-column blocks: demo, first call, FAQ, contact
+ *   1000px – hero two columns, horizontal process timeline
+ *   1160px – full desktop navigation (the design used 1080px; the language switch needs the extra room)
+ */
+:root {
+  --color-ink: #0b1120;
+  --color-ink-raised: #0e1628;
+  --color-navy: #16264a;
+  --color-slate-800: #1e293b;
+
+  --color-blue: #2563eb;
+  --color-blue-dark: #1d4ed8;
+  --color-blue-bright: #3b82f6;
+  --color-blue-light: #93c5fd;
+  --color-blue-tint: #eef4ff;
+  --color-blue-border: #bfd3f8;
+  --color-cyan: #22d3ee;
+
+  --color-text: #0b1120;
+  --color-text-strong: #344054;
+  --color-text-muted: #475467;
+  --color-text-subtle: #64748b;
+  --color-placeholder: #6b7688;
+
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: #94a3b8;
+  --color-on-dark-soft: #cbd5e1;
+  --color-on-dark-strong: #e2e8f0;
+
+  --color-surface: #ffffff;
+  --color-surface-alt: #f6f8fb;
+  --color-surface-muted: #f1f4f9;
+  --color-surface-sunken: #eef1f5;
+
+  --color-border: #e4e8f0;
+  --color-border-strong: #d5dbe5;
+  --color-border-input: #c9d1dd;
+  --color-border-soft: #eef1f6;
+  --color-border-dashed: #bfcbdd;
+  --color-line-dark: rgba(148, 163, 184, 0.14);
+
+  --color-danger: #b42318;
+  --color-danger-strong: #d92d20;
+  --color-danger-tint: #fef3f2;
+
+  --gradient-brand: linear-gradient(135deg, #2563eb, #22d3ee);
+  --gradient-logo: linear-gradient(135deg, #3b82f6, #22d3ee);
+  --grid-lines: linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --container: 1240px;
+  --container-narrow: 1040px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --section-space: clamp(72px, 9vw, 120px);
+  --header-height: 68px;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-pill: 999px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

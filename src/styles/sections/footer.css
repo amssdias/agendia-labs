@@ -1,0 +1,94 @@
+.site-footer {
+  border-top: 1px solid var(--color-line-dark);
+  background: var(--color-ink);
+  color: var(--color-on-dark-muted);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 36px;
+  padding-top: 56px;
+  padding-bottom: 40px;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.site-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14.5px;
+}
+
+.site-footer__col a {
+  align-self: flex-start;
+  color: var(--color-on-dark-muted);
+}
+
+.site-footer__col a:hover {
+  color: var(--color-on-dark);
+}
+
+.site-footer__heading {
+  font-weight: 600;
+  color: var(--color-on-dark);
+}
+
+.site-footer__legal {
+  padding-top: 20px;
+  padding-bottom: 32px;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  font-size: 13.5px;
+}
+
+/* Sticky booking bar on phones */
+
+.mobile-bar {
+  position: fixed;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  left: 12px;
+  z-index: 25;
+  opacity: 0;
+  transform: translateY(120%);
+  pointer-events: none;
+  transition:
+    transform 0.35s var(--ease-out),
+    opacity 0.25s;
+}
+
+.mobile-bar[data-visible='true'] {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.mobile-bar__button {
+  padding: 15px 20px;
+  font-size: 16px;
+  box-shadow: 0 12px 32px -8px rgba(11, 17, 32, 0.5);
+}
+
+.mobile-bar__button .icon {
+  font-size: 19px;
+}
+
+@media (max-width: 767.98px) {
+  /* Keeps the legal line clear of the booking bar. */
+  .site-footer__legal {
+    padding-bottom: 96px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-bar {
+    display: none;
+  }
+}
