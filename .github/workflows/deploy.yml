@@ -1,0 +1,55 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; a newer push waits instead of cancelling a deploy in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - run: npm ci
+
+      # SITE_URL decides the base path. Without a repository variable it falls back to the URL
+      # GitHub Pages reports: https://<user>.github.io/<repo> for a project page, or the custom
+      # domain once one is configured in Settings → Pages.
+      - run: npm run build
+        env:
+          SITE_URL: ${{ vars.SITE_URL || steps.pages.outputs.base_url }}
+          SITE_BOOKING_URL: ${{ vars.SITE_BOOKING_URL }}
+          SITE_FORM_ENDPOINT: ${{ vars.SITE_FORM_ENDPOINT }}
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

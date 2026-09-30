@@ -7,16 +7,26 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies and build output
 node_modules
 dist
 dist-ssr
+.vite
+*.tsbuildinfo
+
+# Environment: .env holds the committed defaults; local overrides stay out of git.
 *.local
+
+# Local Claude Code settings (launch configs, permissions)
+.claude/
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
+desktop.ini
 *.suo
 *.ntvs*
 *.njsproj

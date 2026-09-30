@@ -6,6 +6,13 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--", "--port", "5173", "--strictPort"],
       "port": 5173
+    },
+    {
+      "name": "preview-subpath",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "preview", "--port", "4173", "--strictPort"],
+      "env": { "SITE_URL": "https://example.github.io/dias-flow" },
+      "port": 4173
     }
   ]
 }

@@ -17,7 +17,8 @@
           var lang = String(preferred[i]).slice(0, 2).toLowerCase();
           if (supported.indexOf(lang) !== -1) { match = lang; break; }
         }
-        location.replace('/' + match + '/' + location.hash);
+        // Relative, so it also works when the site is served from a subpath.
+        location.replace(match + '/' + location.hash);
       })();
     </script>
     <style>
@@ -28,8 +29,8 @@
   </head>
   <body>
     <nav aria-label="Language">
-      <a href="/en/" hreflang="en" lang="en">English</a>
-      <a href="/es/" hreflang="es" lang="es">Español</a>
+      <a href="en/" hreflang="en" lang="en">English</a>
+      <a href="es/" hreflang="es" lang="es">Español</a>
     </nav>
   </body>
 </html>

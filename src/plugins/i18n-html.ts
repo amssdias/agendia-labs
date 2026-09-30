@@ -1,6 +1,6 @@
 import type { Plugin, ViteDevServer } from 'vite';
 import { renderPage } from '../render/page.ts';
-import { isLocale, LOCALES, localePath, type SiteConfig } from '../site.ts';
+import { absoluteUrl, isLocale, LOCALES, type SiteConfig } from '../site.ts';
 
 const RENDER_MODULE = '/src/render/page.ts';
 const LOCALE_ENTRY = /[\\/](\w+)[\\/]index\.html$/;
@@ -9,8 +9,8 @@ const RENDER_SOURCES = /[\\/]src[\\/](render|i18n|content|shared)[\\/]|[\\/]src[
 type RenderPage = typeof renderPage;
 
 function sitemap(site: SiteConfig) {
-  const alternates = LOCALES.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${site.url}${localePath(l)}"/>`).join('\n');
-  const urls = LOCALES.map(l => `  <url>\n    <loc>${site.url}${localePath(l)}</loc>\n${alternates}\n  </url>`).join('\n');
+  const alternates = LOCALES.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${absoluteUrl(site, `${l}/`)}"/>`).join('\n');
+  const urls = LOCALES.map(l => `  <url>\n    <loc>${absoluteUrl(site, `${l}/`)}</loc>\n${alternates}\n  </url>`).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
@@ -58,7 +58,7 @@ export function i18nHtml(site: SiteConfig): Plugin {
       this.emitFile({
         type: 'asset',
         fileName: 'robots.txt',
-        source: `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`,
+        source: `User-agent: *\nAllow: /\n\nSitemap: ${absoluteUrl(site, 'sitemap.xml')}\n`,
       });
     },
   };

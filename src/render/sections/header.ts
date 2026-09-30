@@ -5,11 +5,11 @@ import type { RenderContext } from '../context.ts';
 import { html } from '../html.ts';
 import { icon } from '../icon.ts';
 
-function languageSwitch({ locale, t }: RenderContext, modifier = '') {
+function languageSwitch({ locale, t, site }: RenderContext, modifier = '') {
   return html`
     <nav class="lang-switch${modifier}" aria-label="${t.common.language}">
       ${LOCALES.map(
-        l => html`<a href="${localePath(l)}" hreflang="${l}" lang="${l}" aria-label="${LOCALE_NAMES[l]}"${
+        l => html`<a href="${localePath(site, l)}" hreflang="${l}" lang="${l}" aria-label="${LOCALE_NAMES[l]}"${
           l === locale ? html` aria-current="true"` : ''
         }>${l.toUpperCase()}</a>`,
       )}

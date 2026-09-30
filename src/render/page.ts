@@ -1,5 +1,5 @@
 import { messages } from '../i18n/index.ts';
-import { DEFAULT_LOCALE, LOCALES, localePath, type Locale, type SiteConfig } from '../site.ts';
+import { absoluteUrl, DEFAULT_LOCALE, LOCALES, type Locale, type SiteConfig } from '../site.ts';
 import type { RenderContext } from './context.ts';
 import { html, jsonScript } from './html.ts';
 import { about } from './sections/about.ts';
@@ -21,7 +21,7 @@ import { value } from './sections/value.ts';
 const MAIN_SECTIONS = [hero, problems, transformation, services, solutions, automate, process, about, demo, value, firstCall, faq, contact];
 
 function structuredData({ t, site, locale }: RenderContext) {
-  const pageUrl = site.url + localePath(locale);
+  const pageUrl = absoluteUrl(site, `${locale}/`);
   return [
     {
       '@context': 'https://schema.org',
@@ -54,14 +54,14 @@ function structuredData({ t, site, locale }: RenderContext) {
 
 function head(ctx: RenderContext) {
   const { t, site, locale } = ctx;
-  const url = site.url + localePath(locale);
+  const url = absoluteUrl(site, `${locale}/`);
   return html`
     <title>${t.meta.title}</title>
     <meta name="description" content="${t.meta.description}">
     <meta name="theme-color" content="#0B1120">
     <link rel="canonical" href="${url}">
-    ${LOCALES.map(l => html`<link rel="alternate" hreflang="${l}" href="${site.url + localePath(l)}">`)}
-    <link rel="alternate" hreflang="x-default" href="${site.url + localePath(DEFAULT_LOCALE)}">
+    ${LOCALES.map(l => html`<link rel="alternate" hreflang="${l}" href="${absoluteUrl(site, `${l}/`)}">`)}
+    <link rel="alternate" hreflang="x-default" href="${absoluteUrl(site, `${DEFAULT_LOCALE}/`)}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="DiasFlow">
@@ -70,7 +70,7 @@ function head(ctx: RenderContext) {
     <meta property="og:title" content="${t.meta.ogTitle}">
     <meta property="og:description" content="${t.meta.ogDescription}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="${site.url}/og-image.png">
+    <meta property="og:image" content="${absoluteUrl(site, 'og-image.png')}">
     <meta property="og:image:alt" content="${t.meta.ogImageAlt}">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">

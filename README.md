@@ -101,7 +101,7 @@ or production values in `.env.production`.
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `SITE_URL` | `https://diasflow.com` | Origin used for canonical URLs, hreflang, `og:url` and `sitemap.xml`. |
+| `SITE_URL` | `https://diasflow.com` | Public URL of the site root, used for canonical URLs, hreflang, `og:url` and `sitemap.xml`. A path in it (`https://user.github.io/dias-flow`) becomes the base path. |
 | `SITE_BOOKING_URL` | `#contact` | Target of every "Book a call" button. `#contact` scrolls to the form; any other URL (e.g. Cal.com) opens in a new tab. |
 | `SITE_FORM_ENDPOINT` | *(empty)* | URL the contact form POSTs to. Empty means the form opens a pre-filled email instead. |
 
@@ -143,7 +143,7 @@ because of the JSON content type.
 - **Workflow screenshot**: replace `public/img/demo-workflow.svg` with a 1600×1100 screenshot of
   the n8n workflow, and update the `src` in `src/render/sections/demo.ts`.
 - **Social preview image**: add `public/og-image.png` (1200×630). The meta tags already point to
-  `${SITE_URL}/og-image.png`.
+  `<SITE_URL>/og-image.png`.
 - Set `SITE_FORM_ENDPOINT` (and `SITE_BOOKING_URL` if you use a calendar tool).
 
 ## Deployment
@@ -160,9 +160,33 @@ dist/
   sitemap.xml, robots.txt
 ```
 
-Upload it to any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages, S3 + CloudFront, Nginx).
-The site expects to be served from the domain root. The redirect on `/` runs in the browser; if your
-host supports it, a server-side redirect based on `Accept-Language` is a slightly faster alternative.
+It works on any static host. The base path comes from `SITE_URL`: a URL with a path, such as
+`https://user.github.io/dias-flow`, builds the site for that subpath, and a bare domain builds it for
+the root. The redirect on the root page runs in the browser.
+
+### GitHub Pages
+
+`.github/workflows/deploy.yml` builds and publishes the site on every push to `main`, and can also be
+run by hand from the Actions tab.
+
+One-time setup:
+
+1. **Settings → Pages → Build and deployment → Source**: choose **GitHub Actions**.
+2. Optional: under **Settings → Secrets and variables → Actions → Variables**, add repository variables:
+   - `SITE_FORM_ENDPOINT`: contact form endpoint.
+   - `SITE_BOOKING_URL`: external booking link. Leave unset to keep `#contact`.
+   - `SITE_URL`: only if the public URL differs from what GitHub Pages reports.
+
+`SITE_URL` defaults to the URL GitHub Pages reports for the repository:
+
+- **Project page** (no custom domain): `https://<user>.github.io/<repo>`, so the site is built for the
+  `/<repo>/` subpath.
+- **Custom domain** (e.g. `diasflow.com`): set it in **Settings → Pages → Custom domain** and point
+  your DNS at GitHub. The next deploy picks up the new URL and builds for the root. No code or
+  `CNAME` file changes are needed, because deployments from Actions use the domain set in Settings.
+
+On a project page, `robots.txt` isn't at the domain root, so crawlers ignore it. The sitemap
+is still valid and can be submitted in Google Search Console.
 
 ## Notes
 
