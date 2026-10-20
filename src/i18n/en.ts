@@ -4,17 +4,17 @@ export const en: Messages = {
   meta: {
     title: 'AI Business Process Automation for SMEs | Agendia Labs',
     description:
-      'Agendia Labs helps businesses automate repetitive work, lead follow-ups and internal workflows using AI, n8n and custom backend integrations.',
+      'AI business process automation for SMEs: Agendia Labs automates lead follow-ups, CRM updates, WhatsApp and repetitive work with custom integrations.',
     ogTitle: 'AI Business Process Automation for SMEs | Agendia Labs',
     ogDescription:
-      'Automate lead follow-ups, CRM updates and repetitive work with AI, n8n and custom backend integrations. Book a free 20-minute automation call.',
+      'Automate lead follow-ups, CRM updates and repetitive work with AI and custom backend integrations. Book a free 20-minute automation call.',
     ogImageAlt: 'Agendia Labs: automate the work slowing your business down',
     ogLocale: 'en_GB',
   },
   schema: {
     description:
-      'AI automation services, business process automation, n8n workflow automation, CRM automation and API integration services for small and medium businesses.',
-    knowsAbout: ['AI automation', 'Workflow automation', 'n8n', 'CRM automation', 'WhatsApp automation', 'API integrations', 'AI agents'],
+      'AI automation services, business process automation, CRM and WhatsApp automation, and API integration services for small and medium businesses.',
+    knowsAbout: ['AI automation', 'Workflow automation', 'CRM automation', 'WhatsApp automation', 'API integrations', 'AI agents'],
   },
   common: {
     bookCall: 'Book a Free Automation Call',

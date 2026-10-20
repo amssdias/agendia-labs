@@ -4,20 +4,19 @@ export const es: Messages = {
   meta: {
     title: 'Automatización de procesos con IA para pymes | Agendia Labs',
     description:
-      'Agendia Labs ayuda a las empresas a automatizar el trabajo repetitivo, el seguimiento de leads y los procesos internos con IA, n8n e integraciones backend a medida.',
+      'Automatización de procesos con IA para pymes: automatizamos el seguimiento de leads, el CRM, WhatsApp y el trabajo repetitivo con integraciones a medida.',
     ogTitle: 'Automatización de procesos con IA para pymes | Agendia Labs',
     ogDescription:
-      'Automatiza el seguimiento de leads, el CRM y el trabajo repetitivo con IA, n8n e integraciones backend a medida. Reserva una llamada gratuita de 20 minutos.',
+      'Automatiza el seguimiento de leads, el CRM y el trabajo repetitivo con IA e integraciones backend a medida. Reserva una llamada gratuita de 20 minutos.',
     ogImageAlt: 'Agendia Labs: automatiza el trabajo que frena tu negocio',
     ogLocale: 'es_ES',
   },
   schema: {
     description:
-      'Servicios de automatización con IA, automatización de procesos de negocio, automatización con n8n, automatización de CRM e integraciones API para pymes.',
+      'Servicios de automatización con IA, automatización de procesos de negocio, automatización de CRM y WhatsApp, e integraciones API para pymes.',
     knowsAbout: [
       'Automatización con IA',
       'Automatización de procesos',
-      'n8n',
       'Automatización de CRM',
       'Automatización de WhatsApp',
       'Integraciones API',
