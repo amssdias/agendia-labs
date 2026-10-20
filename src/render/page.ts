@@ -26,7 +26,7 @@ function structuredData({ t, site, locale }: RenderContext) {
     {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      name: 'DiasFlow',
+      name: 'Agendia Labs',
       url: pageUrl,
       email: site.email,
       inLanguage: locale,
@@ -64,7 +64,7 @@ function head(ctx: RenderContext) {
     <link rel="alternate" hreflang="x-default" href="${absoluteUrl(site, `${DEFAULT_LOCALE}/`)}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="DiasFlow">
+    <meta property="og:site_name" content="Agendia Labs">
     <meta property="og:locale" content="${t.meta.ogLocale}">
     ${LOCALES.filter(l => l !== locale).map(l => html`<meta property="og:locale:alternate" content="${messages[l].meta.ogLocale}">`)}
     <meta property="og:title" content="${t.meta.ogTitle}">

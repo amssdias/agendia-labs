@@ -11,7 +11,7 @@
       "name": "preview-subpath",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["vite", "preview", "--port", "4173", "--strictPort"],
-      "env": { "SITE_URL": "https://example.github.io/dias-flow" },
+      "env": { "SITE_URL": "https://example.github.io/agendia-labs" },
       "port": 4173
     }
   ]

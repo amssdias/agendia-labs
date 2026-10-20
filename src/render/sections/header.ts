@@ -23,7 +23,7 @@ export function header(ctx: RenderContext) {
 <a class="skip-link" href="#main">${t.common.skipToContent}</a>
 <header class="site-header" data-header>
   <div class="container site-header__bar">
-    <a href="#main" class="brand" aria-label="${t.common.home}">${logoMark()}DiasFlow</a>
+    <a href="#main" class="brand" aria-label="${t.common.home}">${logoMark()}Agendia Labs</a>
     <nav class="site-nav" aria-label="${t.common.mainNav}">
       ${links.map(l => html`<a href="#${l.id}" class="site-nav__link" data-nav-link="${l.id}">${l.label}</a>`)}
     </nav>

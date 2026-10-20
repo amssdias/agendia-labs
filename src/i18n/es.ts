@@ -2,13 +2,13 @@ import type { Messages } from './types.ts';
 
 export const es: Messages = {
   meta: {
-    title: 'DiasFlow | Automatización con IA e integración de procesos de negocio',
+    title: 'Agendia Labs | Automatización con IA e integración de procesos de negocio',
     description:
-      'DiasFlow ayuda a las empresas a automatizar el trabajo repetitivo, el seguimiento de leads y los procesos internos con IA, n8n e integraciones backend a medida.',
-    ogTitle: 'DiasFlow | Automatización con IA e integración de procesos de negocio',
+      'Agendia Labs ayuda a las empresas a automatizar el trabajo repetitivo, el seguimiento de leads y los procesos internos con IA, n8n e integraciones backend a medida.',
+    ogTitle: 'Agendia Labs | Automatización con IA e integración de procesos de negocio',
     ogDescription:
       'Automatiza el seguimiento de leads, el CRM y el trabajo repetitivo con IA, n8n e integraciones backend a medida. Reserva una llamada gratuita de 20 minutos.',
-    ogImageAlt: 'DiasFlow: automatiza el trabajo que frena tu negocio',
+    ogImageAlt: 'Agendia Labs: automatiza el trabajo que frena tu negocio',
     ogLocale: 'es_ES',
   },
   schema: {
@@ -28,7 +28,7 @@ export const es: Messages = {
   common: {
     bookCall: 'Reserva tu llamada gratuita',
     bookCallShort: 'Reservar llamada',
-    home: 'Inicio de DiasFlow',
+    home: 'Inicio de Agendia Labs',
     mainNav: 'Principal',
     menu: 'Menú',
     language: 'Idioma',
@@ -38,13 +38,13 @@ export const es: Messages = {
     services: 'Servicios',
     solutions: 'Soluciones',
     'how-it-works': 'Cómo funciona',
-    about: 'Sobre DiasFlow',
+    about: 'Sobre Agendia Labs',
     faq: 'FAQ',
   },
   hero: {
     eyebrow: 'Automatización con IA e integraciones backend',
     title: 'Automatiza el trabajo que frena tu negocio.',
-    lead: 'DiasFlow crea automatizaciones con IA e integraciones a medida que ayudan a las empresas a captar leads, automatizar el seguimiento, conectar sus herramientas y eliminar el trabajo repetitivo.',
+    lead: 'Agendia Labs crea automatizaciones con IA e integraciones a medida que ayudan a las empresas a captar leads, automatizar el seguimiento, conectar sus herramientas y eliminar el trabajo repetitivo.',
     secondaryCta: 'Descubre qué podemos automatizar',
     reassurance: 'Sin compromiso • Llamada de 20 minutos',
     flowLabel: 'Ejemplo de automatización: nuevo lead, cualificación con IA, CRM, seguimiento por WhatsApp o email, reunión reservada',
@@ -57,7 +57,7 @@ export const es: Messages = {
       meeting: { title: 'Reunión reservada', detail: 'Llamada añadida al calendario comercial' },
     },
     techIntro: 'Construido con tecnologías en las que las empresas confían',
-    techListLabel: 'Tecnologías con las que trabaja DiasFlow',
+    techListLabel: 'Tecnologías con las que trabaja Agendia Labs',
     restApis: 'APIs REST',
   },
   problems: {
@@ -103,7 +103,7 @@ export const es: Messages = {
       ],
     },
     after: {
-      title: 'Después, con DiasFlow',
+      title: 'Después, con Agendia Labs',
       badge: 'Funciona solo',
       steps: [
         'Llega un lead',
@@ -160,7 +160,7 @@ export const es: Messages = {
     },
   },
   solutions: {
-    title: '¿Qué podría automatizar DiasFlow en tu negocio?',
+    title: '¿Qué podría automatizar Agendia Labs en tu negocio?',
     tabsLabel: 'Sectores',
     cases: {
       'real-estate': {
@@ -275,19 +275,19 @@ export const es: Messages = {
     ctaNote: 'El paso 1 empieza con una llamada gratuita de 20 minutos.',
   },
   about: {
-    photoAlt: 'André Dias, fundador de DiasFlow',
+    photoAlt: 'André Dias, fundador de Agendia Labs',
     caption: '{name}, fundador e ingeniero backend',
     title: 'Automatización construida por un ingeniero, no solo conectada con herramientas no-code.',
     paragraphs: [
-      'DiasFlow está fundada por André Dias, ingeniero backend con experiencia en APIs, bases de datos, sistemas asíncronos, integraciones y aplicaciones backend escalables.',
-      'Por eso DiasFlow puede ir más allá de las automatizaciones de arrastrar y soltar cuando tu negocio necesita lógica a medida o integraciones más profundas. Y siempre hablas directamente con quien construye tu sistema.',
+      'Agendia Labs está fundada por André Dias, ingeniero backend con experiencia en APIs, bases de datos, sistemas asíncronos, integraciones y aplicaciones backend escalables.',
+      'Por eso Agendia Labs puede ir más allá de las automatizaciones de arrastrar y soltar cuando tu negocio necesita lógica a medida o integraciones más profundas. Y siempre hablas directamente con quien construye tu sistema.',
     ],
     skillsLabel: 'Habilidades',
     skills: ['Python', 'Django', 'APIs REST', 'PostgreSQL', 'Docker', 'n8n', 'Integraciones de IA'],
   },
   demo: {
     title: 'Mira una automatización en acción',
-    lead: 'Un proceso real que construye DiasFlow, paso a paso.',
+    lead: 'Un proceso real que construye Agendia Labs, paso a paso.',
     heading: 'Cualificación y seguimiento automático de leads',
     builtWith: 'Construido con n8n + APIs + lógica de negocio automatizada.',
     steps: [
@@ -333,7 +333,7 @@ export const es: Messages = {
     intro: '¿Tienes otra duda? Escribe a {email}.',
     items: [
       {
-        q: '¿Qué puede automatizar DiasFlow exactamente?',
+        q: '¿Qué puede automatizar Agendia Labs exactamente?',
         a: 'Casi cualquier trabajo digital repetitivo y basado en reglas: captación y seguimiento de leads, actualizaciones del CRM, preguntas de clientes, recordatorios de citas, informes, introducción de datos, facturas y alta de clientes. Si sigue un patrón predecible, suele ser un buen candidato.',
       },
       {
@@ -350,7 +350,7 @@ export const es: Messages = {
       },
       {
         q: '¿Podéis conectar software propio o interno?',
-        a: 'Sí. Gracias a la experiencia en ingeniería backend, DiasFlow puede conectar sistemas internos mediante su API o base de datos, o construir una pequeña capa de integración si no existe.',
+        a: 'Sí. Gracias a la experiencia en ingeniería backend, Agendia Labs puede conectar sistemas internos mediante su API o base de datos, o construir una pequeña capa de integración si no existe.',
       },
       {
         q: '¿Hace falta IA en todas las automatizaciones?',
@@ -405,9 +405,9 @@ export const es: Messages = {
       'Agentes de IA',
     ],
     companyTitle: 'Empresa',
-    company: { solutions: 'Soluciones', demo: 'Demo de automatización', about: 'Sobre DiasFlow', faq: 'FAQ', contact: 'Contacto' },
+    company: { solutions: 'Soluciones', demo: 'Demo de automatización', about: 'Sobre Agendia Labs', faq: 'FAQ', contact: 'Contacto' },
     contactTitle: 'Contacto',
-    legal: '© {year} DiasFlow. Los nombres y logotipos de las tecnologías pertenecen a sus propietarios y no implican respaldo.',
+    legal: '© {year} Agendia Labs. Los nombres y logotipos de las tecnologías pertenecen a sus propietarios y no implican respaldo.',
   },
   client: {
     flow: { done: 'Hecho', running: 'En curso', waiting: 'En espera', statusRunning: 'En ejecución', statusCompleted: 'Completado' },

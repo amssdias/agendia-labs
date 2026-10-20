@@ -2,13 +2,13 @@ import type { Messages } from './types.ts';
 
 export const en: Messages = {
   meta: {
-    title: 'DiasFlow | AI Automation & Business Workflow Integration',
+    title: 'Agendia Labs | AI Automation & Business Workflow Integration',
     description:
-      'DiasFlow helps businesses automate repetitive work, lead follow-ups and internal workflows using AI, n8n and custom backend integrations.',
-    ogTitle: 'DiasFlow | AI Automation & Business Workflow Integration',
+      'Agendia Labs helps businesses automate repetitive work, lead follow-ups and internal workflows using AI, n8n and custom backend integrations.',
+    ogTitle: 'Agendia Labs | AI Automation & Business Workflow Integration',
     ogDescription:
       'Automate lead follow-ups, CRM updates and repetitive work with AI, n8n and custom backend integrations. Book a free 20-minute automation call.',
-    ogImageAlt: 'DiasFlow: automate the work slowing your business down',
+    ogImageAlt: 'Agendia Labs: automate the work slowing your business down',
     ogLocale: 'en_GB',
   },
   schema: {
@@ -20,7 +20,7 @@ export const en: Messages = {
   common: {
     bookCall: 'Book a Free Automation Call',
     bookCallShort: 'Book Free Call',
-    home: 'DiasFlow home',
+    home: 'Agendia Labs home',
     mainNav: 'Main',
     menu: 'Menu',
     language: 'Language',
@@ -36,7 +36,7 @@ export const en: Messages = {
   hero: {
     eyebrow: 'AI Automation & Backend Integrations',
     title: 'Automate the work slowing your business down.',
-    lead: 'DiasFlow builds AI automations and custom integrations that help businesses capture leads, automate follow-ups, connect their tools and eliminate repetitive work.',
+    lead: 'Agendia Labs builds AI automations and custom integrations that help businesses capture leads, automate follow-ups, connect their tools and eliminate repetitive work.',
     secondaryCta: 'See What We Can Automate',
     reassurance: 'No commitment • 20-minute discovery call',
     flowLabel: 'Example automation: new lead, AI qualification, CRM, WhatsApp or email follow-up, meeting booked',
@@ -49,7 +49,7 @@ export const en: Messages = {
       meeting: { title: 'Meeting booked', detail: 'Call added to the sales calendar' },
     },
     techIntro: 'Built with technologies businesses can rely on',
-    techListLabel: 'Technologies DiasFlow builds with',
+    techListLabel: 'Technologies Agendia Labs builds with',
     restApis: 'REST APIs',
   },
   problems: {
@@ -95,7 +95,7 @@ export const en: Messages = {
       ],
     },
     after: {
-      title: 'After, with DiasFlow',
+      title: 'After, with Agendia Labs',
       badge: 'Runs automatically',
       steps: [
         'Lead arrives',
@@ -152,7 +152,7 @@ export const en: Messages = {
     },
   },
   solutions: {
-    title: 'What could DiasFlow automate for your business?',
+    title: 'What could Agendia Labs automate for your business?',
     tabsLabel: 'Industries',
     cases: {
       'real-estate': {
@@ -267,19 +267,19 @@ export const en: Messages = {
     ctaNote: 'Step 1 starts with a free 20-minute call.',
   },
   about: {
-    photoAlt: 'André Dias, founder of DiasFlow',
+    photoAlt: 'André Dias, founder of Agendia Labs',
     caption: '{name}, Founder and Backend Engineer',
     title: 'Automation built by an engineer, not just connected with no-code tools.',
     paragraphs: [
-      'DiasFlow is founded by André Dias, a Backend Engineer experienced in building APIs, databases, asynchronous systems, integrations and scalable backend applications.',
-      'This means DiasFlow can go beyond simple drag-and-drop automations when your business needs custom logic or deeper integrations. And you always speak directly with the person building your system.',
+      'Agendia Labs is founded by André Dias, a Backend Engineer experienced in building APIs, databases, asynchronous systems, integrations and scalable backend applications.',
+      'This means Agendia Labs can go beyond simple drag-and-drop automations when your business needs custom logic or deeper integrations. And you always speak directly with the person building your system.',
     ],
     skillsLabel: 'Skills',
     skills: ['Python', 'Django', 'REST APIs', 'PostgreSQL', 'Docker', 'n8n', 'AI integrations'],
   },
   demo: {
     title: 'See an automation in action',
-    lead: 'A real workflow DiasFlow builds, step by step.',
+    lead: 'A real workflow Agendia Labs builds, step by step.',
     heading: 'Automatic Lead Qualification & Follow-up',
     builtWith: 'Built with n8n + APIs + automated business logic.',
     steps: [
@@ -325,7 +325,7 @@ export const en: Messages = {
     intro: 'Something else on your mind? Email {email}.',
     items: [
       {
-        q: 'What exactly can DiasFlow automate?',
+        q: 'What exactly can Agendia Labs automate?',
         a: 'Most repetitive, rule-based digital work: lead capture and follow-up, CRM updates, customer questions, appointment reminders, reports, data entry, invoices and client onboarding. If it follows a predictable pattern, it is usually a good candidate.',
       },
       {
@@ -342,7 +342,7 @@ export const en: Messages = {
       },
       {
         q: 'Can you connect custom or internal software?',
-        a: 'Yes. Thanks to a backend engineering background, DiasFlow can connect internal systems through their API or database, or build a small integration layer when none exists.',
+        a: 'Yes. Thanks to a backend engineering background, Agendia Labs can connect internal systems through their API or database, or build a small integration layer when none exists.',
       },
       {
         q: 'Is AI required for every automation?',
@@ -392,7 +392,7 @@ export const en: Messages = {
     companyTitle: 'Company',
     company: { solutions: 'Solutions', demo: 'Automation demo', about: 'About', faq: 'FAQ', contact: 'Contact' },
     contactTitle: 'Contact',
-    legal: '© {year} DiasFlow. Technology names and logos belong to their owners and do not imply endorsement.',
+    legal: '© {year} Agendia Labs. Technology names and logos belong to their owners and do not imply endorsement.',
   },
   client: {
     flow: { done: 'Done', running: 'Running', waiting: 'Waiting', statusRunning: 'Running', statusCompleted: 'Completed' },

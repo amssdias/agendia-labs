@@ -26,7 +26,7 @@ export function i18nHtml(site: SiteConfig): Plugin {
   let server: ViteDevServer | undefined;
 
   return {
-    name: 'dias-flow:i18n-html',
+    name: 'agendia-labs:i18n-html',
 
     configureServer(devServer) {
       server = devServer;

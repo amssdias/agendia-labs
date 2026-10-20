@@ -1,6 +1,6 @@
-# DiasFlow landing page
+# Agendia Labs landing page
 
-Bilingual (English / Spanish) marketing site for DiasFlow, built from the Claude Design file
+Bilingual (English / Spanish) marketing site for Agendia Labs, built from the Claude Design file
 `DiasFlow Landing ES.dc.html` (Spanish) and `DiasFlow Landing v2.dc.html` (English).
 
 - **Vite + TypeScript**, no UI framework.
@@ -101,7 +101,7 @@ or production values in `.env.production`.
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `SITE_URL` | `https://diasflow.com` | Public URL of the site root, used for canonical URLs, hreflang, `og:url` and `sitemap.xml`. A path in it (`https://user.github.io/dias-flow`) becomes the base path. |
+| `SITE_URL` | `https://agendialabs.com` | Public URL of the site root, used for canonical URLs, hreflang, `og:url` and `sitemap.xml`. A path in it (`https://user.github.io/agendia-labs`) becomes the base path. |
 | `SITE_BOOKING_URL` | `#contact` | Target of every "Book a call" button. `#contact` scrolls to the form; any other URL (e.g. Cal.com) opens in a new tab. |
 | `SITE_FORM_ENDPOINT` | *(empty)* | URL the contact form POSTs to. Empty means the form opens a pre-filled email instead. |
 
@@ -125,7 +125,7 @@ Content-Type: application/json
   "message": "…",
   "website": "…",
   "locale": "en",
-  "page": "https://diasflow.com/en/"
+  "page": "https://agendialabs.com/en/"
 }
 ```
 
@@ -161,7 +161,7 @@ dist/
 ```
 
 It works on any static host. The base path comes from `SITE_URL`: a URL with a path, such as
-`https://user.github.io/dias-flow`, builds the site for that subpath, and a bare domain builds it for
+`https://user.github.io/agendia-labs`, builds the site for that subpath, and a bare domain builds it for
 the root. The redirect on the root page runs in the browser.
 
 ### GitHub Pages
@@ -181,7 +181,7 @@ One-time setup:
 
 - **Project page** (no custom domain): `https://<user>.github.io/<repo>`, so the site is built for the
   `/<repo>/` subpath.
-- **Custom domain** (e.g. `diasflow.com`): set it in **Settings → Pages → Custom domain** and point
+- **Custom domain** (e.g. `agendialabs.com`): set it in **Settings → Pages → Custom domain** and point
   your DNS at GitHub. The next deploy picks up the new URL and builds for the root. No code or
   `CNAME` file changes are needed, because deployments from Actions use the domain set in Settings.
 

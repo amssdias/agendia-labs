@@ -17,7 +17,7 @@ export function footer({ t, site }: RenderContext) {
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div class="site-footer__brand">
-      <span class="brand brand--sm">${logoMark('sm')}DiasFlow</span>
+      <span class="brand brand--sm">${logoMark('sm')}Agendia Labs</span>
       <span>${f.tagline}</span>
     </div>
     <nav class="site-footer__col" aria-label="${f.servicesTitle}">

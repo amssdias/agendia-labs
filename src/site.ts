@@ -12,10 +12,10 @@ export const isLocale = (value: string): value is Locale => (LOCALES as readonly
 export interface SiteConfig {
   /**
    * Public URL of the site root, without trailing slash. May include a path, e.g.
-   * https://user.github.io/dias-flow for a GitHub project page.
+   * https://user.github.io/agendia-labs for a GitHub project page.
    */
   url: string;
-  /** Path the site is served from, derived from `url`: '/' or '/dias-flow/'. */
+  /** Path the site is served from, derived from `url`: '/' or '/agendia-labs/'. */
   basePath: string;
   /** '#contact' scrolls to the form; any other URL (e.g. Cal.com) opens in a new tab. */
   bookingUrl: string;
@@ -27,18 +27,18 @@ export interface SiteConfig {
 }
 
 export const SITE_DEFAULTS: SiteConfig = {
-  url: 'https://diasflow.com',
+  url: 'https://agendialabs.com',
   basePath: '/',
   bookingUrl: '#contact',
   formEndpoint: '',
-  email: 'hello@diasflow.com',
+  email: 'hello@agendialabs.com',
   linkedinUrl: 'https://www.linkedin.com/in/andre-dias',
   githubUrl: 'https://github.com/andre-dias',
 };
 
 export const basePathFromUrl = (url: string) => new URL(url).pathname.replace(/\/?$/, '/');
 
-/** Root-relative path inside the site, e.g. sitePath(site, 'en/') → '/dias-flow/en/'. */
+/** Root-relative path inside the site, e.g. sitePath(site, 'en/') → '/agendia-labs/en/'. */
 export const sitePath = (site: Pick<SiteConfig, 'basePath'>, path = '') => site.basePath + path.replace(/^\//, '');
 
 export const localePath = (site: Pick<SiteConfig, 'basePath'>, locale: Locale) => sitePath(site, `${locale}/`);
