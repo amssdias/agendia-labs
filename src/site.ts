@@ -22,8 +22,6 @@ export interface SiteConfig {
   /** Where the contact form POSTs its JSON. Empty falls back to a pre-filled mailto link. */
   formEndpoint: string;
   email: string;
-  linkedinUrl: string;
-  githubUrl: string;
 }
 
 export const SITE_DEFAULTS: SiteConfig = {
@@ -32,8 +30,6 @@ export const SITE_DEFAULTS: SiteConfig = {
   bookingUrl: '#contact',
   formEndpoint: '',
   email: 'hello@agendialabs.com',
-  linkedinUrl: 'https://www.linkedin.com/in/andre-dias',
-  githubUrl: 'https://github.com/andre-dias',
 };
 
 export const basePathFromUrl = (url: string) => new URL(url).pathname.replace(/\/?$/, '/');

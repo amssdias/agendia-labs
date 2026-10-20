@@ -20,7 +20,7 @@ export function value({ t, locale }: RenderContext) {
   const v = t.value;
   const { people, hours } = ROI_DEFAULTS;
   return html`
-<section id="value" class="section" aria-labelledby="value-title">
+<section id="value" class="section section--bordered" aria-labelledby="value-title">
   <div class="container" data-reveal>
     <h2 id="value-title" class="section-title section-title--md section-title--wide section-title--spaced">${v.title}</h2>
     <div class="roi" data-roi>

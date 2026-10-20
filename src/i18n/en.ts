@@ -2,10 +2,10 @@ import type { Messages } from './types.ts';
 
 export const en: Messages = {
   meta: {
-    title: 'Agendia Labs | AI Automation & Business Workflow Integration',
+    title: 'AI Business Process Automation for SMEs | Agendia Labs',
     description:
       'Agendia Labs helps businesses automate repetitive work, lead follow-ups and internal workflows using AI, n8n and custom backend integrations.',
-    ogTitle: 'Agendia Labs | AI Automation & Business Workflow Integration',
+    ogTitle: 'AI Business Process Automation for SMEs | Agendia Labs',
     ogDescription:
       'Automate lead follow-ups, CRM updates and repetitive work with AI, n8n and custom backend integrations. Book a free 20-minute automation call.',
     ogImageAlt: 'Agendia Labs: automate the work slowing your business down',
@@ -15,7 +15,6 @@ export const en: Messages = {
     description:
       'AI automation services, business process automation, n8n workflow automation, CRM automation and API integration services for small and medium businesses.',
     knowsAbout: ['AI automation', 'Workflow automation', 'n8n', 'CRM automation', 'WhatsApp automation', 'API integrations', 'AI agents'],
-    founderJobTitle: 'Backend Engineer',
   },
   common: {
     bookCall: 'Book a Free Automation Call',
@@ -30,7 +29,6 @@ export const en: Messages = {
     services: 'Services',
     solutions: 'Solutions',
     'how-it-works': 'How It Works',
-    about: 'About',
     faq: 'FAQ',
   },
   hero: {
@@ -266,17 +264,6 @@ export const en: Messages = {
     },
     ctaNote: 'Step 1 starts with a free 20-minute call.',
   },
-  about: {
-    photoAlt: 'André Dias, founder of Agendia Labs',
-    caption: '{name}, Founder and Backend Engineer',
-    title: 'Automation built by an engineer, not just connected with no-code tools.',
-    paragraphs: [
-      'Agendia Labs is founded by André Dias, a Backend Engineer experienced in building APIs, databases, asynchronous systems, integrations and scalable backend applications.',
-      'This means Agendia Labs can go beyond simple drag-and-drop automations when your business needs custom logic or deeper integrations. And you always speak directly with the person building your system.',
-    ],
-    skillsLabel: 'Skills',
-    skills: ['Python', 'Django', 'REST APIs', 'PostgreSQL', 'Docker', 'n8n', 'AI integrations'],
-  },
   demo: {
     title: 'See an automation in action',
     lead: 'A real workflow Agendia Labs builds, step by step.',
@@ -390,7 +377,7 @@ export const en: Messages = {
     servicesTitle: 'Services',
     services: ['AI lead automation', 'WhatsApp automation', 'CRM automation', 'n8n automation', 'API integrations', 'AI agents'],
     companyTitle: 'Company',
-    company: { solutions: 'Solutions', demo: 'Automation demo', about: 'About', faq: 'FAQ', contact: 'Contact' },
+    company: { solutions: 'Solutions', demo: 'Automation demo', faq: 'FAQ', contact: 'Contact' },
     contactTitle: 'Contact',
     legal: '© {year} Agendia Labs. Technology names and logos belong to their owners and do not imply endorsement.',
   },

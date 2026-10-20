@@ -6,7 +6,7 @@ import { icon } from '../icon.ts';
 export function demo({ t }: RenderContext) {
   const d = t.demo;
   return html`
-<section id="demo" class="section section--alt" aria-labelledby="demo-title">
+<section id="demo" class="section" aria-labelledby="demo-title">
   <div class="container" data-reveal>
     ${sectionIntro('demo-title', d.title, d.lead)}
     <div class="demo">

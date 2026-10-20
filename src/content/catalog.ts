@@ -4,7 +4,7 @@
  * until every locale translates it.
  */
 
-export const NAV_SECTIONS = ['services', 'solutions', 'how-it-works', 'about', 'faq'] as const;
+export const NAV_SECTIONS = ['services', 'solutions', 'how-it-works', 'faq'] as const;
 export type NavSection = (typeof NAV_SECTIONS)[number];
 
 export const FLOW = [

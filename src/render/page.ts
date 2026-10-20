@@ -2,7 +2,6 @@ import { messages } from '../i18n/index.ts';
 import { absoluteUrl, DEFAULT_LOCALE, LOCALES, type Locale, type SiteConfig } from '../site.ts';
 import type { RenderContext } from './context.ts';
 import { html, jsonScript } from './html.ts';
-import { about } from './sections/about.ts';
 import { automate } from './sections/automate.ts';
 import { contact } from './sections/contact.ts';
 import { demo } from './sections/demo.ts';
@@ -18,38 +17,52 @@ import { solutions } from './sections/solutions.ts';
 import { transformation } from './sections/transformation.ts';
 import { value } from './sections/value.ts';
 
-const MAIN_SECTIONS = [hero, problems, transformation, services, solutions, automate, process, about, demo, value, firstCall, faq, contact];
+const MAIN_SECTIONS = [hero, problems, transformation, services, solutions, automate, process, demo, value, firstCall, faq, contact];
 
-function structuredData({ t, site, locale }: RenderContext) {
+const ogImage = (ctx: RenderContext) => absoluteUrl(ctx.site, `og-image-${ctx.locale}.png`);
+
+function structuredData(ctx: RenderContext) {
+  const { t, site, locale } = ctx;
+  const siteUrl = absoluteUrl(site);
   const pageUrl = absoluteUrl(site, `${locale}/`);
-  return [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'ProfessionalService',
-      name: 'Agendia Labs',
-      url: pageUrl,
-      email: site.email,
-      inLanguage: locale,
-      description: t.schema.description,
-      knowsAbout: t.schema.knowsAbout,
-      founder: {
-        '@type': 'Person',
-        name: 'André Dias',
-        jobTitle: t.schema.founderJobTitle,
-        sameAs: [site.linkedinUrl, site.githubUrl],
+  // Shared @ids, so both languages describe the same organisation.
+  const organizationId = `${siteUrl}#organization`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}#website`,
+        url: siteUrl,
+        name: 'Agendia Labs',
+        inLanguage: locale,
+        publisher: { '@id': organizationId },
       },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      inLanguage: locale,
-      mainEntity: t.faq.items.map(item => ({
-        '@type': 'Question',
-        name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
-      })),
-    },
-  ];
+      {
+        '@type': 'ProfessionalService',
+        '@id': organizationId,
+        name: 'Agendia Labs',
+        url: siteUrl,
+        logo: absoluteUrl(site, 'favicon.svg'),
+        image: ogImage(ctx),
+        email: site.email,
+        description: t.schema.description,
+        areaServed: { '@type': 'Country', name: 'ES' },
+        knowsAbout: t.schema.knowsAbout,
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${pageUrl}#faq`,
+        url: pageUrl,
+        inLanguage: locale,
+        mainEntity: t.faq.items.map(item => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
+      },
+    ],
+  };
 }
 
 function head(ctx: RenderContext) {
@@ -70,13 +83,15 @@ function head(ctx: RenderContext) {
     <meta property="og:title" content="${t.meta.ogTitle}">
     <meta property="og:description" content="${t.meta.ogDescription}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="${absoluteUrl(site, 'og-image.png')}">
+    <meta property="og:image" content="${ogImage(ctx)}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="${t.meta.ogImageAlt}">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap">
-    ${structuredData(ctx).map(data => html`<script type="application/ld+json">${jsonScript(data)}</script>`)}`;
+    <script type="application/ld+json">${jsonScript(structuredData(ctx))}</script>`;
 }
 
 function body(ctx: RenderContext) {

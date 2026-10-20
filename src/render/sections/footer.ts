@@ -9,7 +9,6 @@ export function footer({ t, site }: RenderContext) {
   const companyLinks = [
     ['#solutions', f.company.solutions],
     ['#demo', f.company.demo],
-    ['#about', f.company.about],
     ['#faq', f.company.faq],
     ['#contact', f.company.contact],
   ];
@@ -31,8 +30,6 @@ export function footer({ t, site }: RenderContext) {
     <div class="site-footer__col">
       <span class="site-footer__heading">${f.contactTitle}</span>
       <a href="mailto:${site.email}">${site.email}</a>
-      <a href="${site.linkedinUrl}" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="${site.githubUrl}" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
   <div class="container site-footer__legal">${interpolate(f.legal, { year: new Date().getFullYear() })}</div>

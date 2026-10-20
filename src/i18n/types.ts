@@ -43,7 +43,7 @@ export interface Messages {
     /** e.g. en_US. */
     ogLocale: string;
   };
-  schema: { description: string; knowsAbout: string[]; founderJobTitle: string };
+  schema: { description: string; knowsAbout: string[] };
   common: {
     bookCall: string;
     bookCallShort: string;
@@ -110,15 +110,6 @@ export interface Messages {
     steps: Record<ProcessKey, { title: string; text: string }>;
     ctaNote: string;
   };
-  about: {
-    photoAlt: string;
-    /** `{name}` placeholder, rendered bold. */
-    caption: string;
-    title: string;
-    paragraphs: string[];
-    skillsLabel: string;
-    skills: string[];
-  };
   demo: {
     title: string;
     lead: string;
@@ -178,7 +169,7 @@ export interface Messages {
     servicesTitle: string;
     services: string[];
     companyTitle: string;
-    company: { solutions: string; demo: string; about: string; faq: string; contact: string };
+    company: { solutions: string; demo: string; faq: string; contact: string };
     contactTitle: string;
     /** `{year}` placeholder. */
     legal: string;

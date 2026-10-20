@@ -195,7 +195,7 @@
   min-height: 420px;
 }
 
-.contact-card__sent h3 {
+.contact-card__sent-title {
   margin-top: 10px;
   font-size: 24px;
   font-weight: 700;

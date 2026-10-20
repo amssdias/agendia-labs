@@ -108,7 +108,7 @@ or production values in `.env.production`.
 These variables are deliberately not prefixed with `VITE_`: they are rendered into the HTML at
 build time, so nothing extra is exposed to the client bundle.
 
-The contact email and social links are in `SITE_DEFAULTS` in `src/site.ts`.
+The contact email is in `SITE_DEFAULTS` in `src/site.ts`.
 
 ### Contact form endpoint
 
@@ -138,12 +138,10 @@ because of the JSON content type.
 
 ## Before going live
 
-- **Founder photo**: replace `public/img/founder.svg` with a 4:5 photo (e.g. `founder.jpg`, about
-  920×1150), and update the `src` in `src/render/sections/about.ts`.
 - **Workflow screenshot**: replace `public/img/demo-workflow.svg` with a 1600×1100 screenshot of
   the n8n workflow, and update the `src` in `src/render/sections/demo.ts`.
-- **Social preview image**: add `public/og-image.png` (1200×630). The meta tags already point to
-  `<SITE_URL>/og-image.png`.
+- **Social preview images**: `public/og-image-en.png` and `public/og-image-es.png` (1200×630), one per
+  language. They show the hero headline, so update them if it changes.
 - Set `SITE_FORM_ENDPOINT` (and `SITE_BOOKING_URL` if you use a calendar tool).
 
 ## Deployment

@@ -2,10 +2,10 @@ import type { Messages } from './types.ts';
 
 export const es: Messages = {
   meta: {
-    title: 'Agendia Labs | Automatización con IA e integración de procesos de negocio',
+    title: 'Automatización de procesos con IA para pymes | Agendia Labs',
     description:
       'Agendia Labs ayuda a las empresas a automatizar el trabajo repetitivo, el seguimiento de leads y los procesos internos con IA, n8n e integraciones backend a medida.',
-    ogTitle: 'Agendia Labs | Automatización con IA e integración de procesos de negocio',
+    ogTitle: 'Automatización de procesos con IA para pymes | Agendia Labs',
     ogDescription:
       'Automatiza el seguimiento de leads, el CRM y el trabajo repetitivo con IA, n8n e integraciones backend a medida. Reserva una llamada gratuita de 20 minutos.',
     ogImageAlt: 'Agendia Labs: automatiza el trabajo que frena tu negocio',
@@ -23,7 +23,6 @@ export const es: Messages = {
       'Integraciones API',
       'Agentes de IA',
     ],
-    founderJobTitle: 'Ingeniero Backend',
   },
   common: {
     bookCall: 'Reserva tu llamada gratuita',
@@ -38,7 +37,6 @@ export const es: Messages = {
     services: 'Servicios',
     solutions: 'Soluciones',
     'how-it-works': 'Cómo funciona',
-    about: 'Sobre Agendia Labs',
     faq: 'FAQ',
   },
   hero: {
@@ -274,17 +272,6 @@ export const es: Messages = {
     },
     ctaNote: 'El paso 1 empieza con una llamada gratuita de 20 minutos.',
   },
-  about: {
-    photoAlt: 'André Dias, fundador de Agendia Labs',
-    caption: '{name}, fundador e ingeniero backend',
-    title: 'Automatización construida por un ingeniero, no solo conectada con herramientas no-code.',
-    paragraphs: [
-      'Agendia Labs está fundada por André Dias, ingeniero backend con experiencia en APIs, bases de datos, sistemas asíncronos, integraciones y aplicaciones backend escalables.',
-      'Por eso Agendia Labs puede ir más allá de las automatizaciones de arrastrar y soltar cuando tu negocio necesita lógica a medida o integraciones más profundas. Y siempre hablas directamente con quien construye tu sistema.',
-    ],
-    skillsLabel: 'Habilidades',
-    skills: ['Python', 'Django', 'APIs REST', 'PostgreSQL', 'Docker', 'n8n', 'Integraciones de IA'],
-  },
   demo: {
     title: 'Mira una automatización en acción',
     lead: 'Un proceso real que construye Agendia Labs, paso a paso.',
@@ -405,7 +392,7 @@ export const es: Messages = {
       'Agentes de IA',
     ],
     companyTitle: 'Empresa',
-    company: { solutions: 'Soluciones', demo: 'Demo de automatización', about: 'Sobre Agendia Labs', faq: 'FAQ', contact: 'Contacto' },
+    company: { solutions: 'Soluciones', demo: 'Demo de automatización', faq: 'FAQ', contact: 'Contacto' },
     contactTitle: 'Contacto',
     legal: '© {year} Agendia Labs. Los nombres y logotipos de las tecnologías pertenecen a sus propietarios y no implican respaldo.',
   },

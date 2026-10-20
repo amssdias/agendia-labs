@@ -26,7 +26,7 @@ function contactForm({ t, site }: RenderContext) {
     <div id="contact-form" class="contact-card">
       <div class="contact-card__sent" role="status" hidden data-form-sent>
         <span class="contact-card__sent-icon" aria-hidden="true">${icon('check', { weight: 'bold' })}</span>
-        <h3 data-sent-title></h3>
+        <div class="contact-card__sent-title" data-sent-title></div>
         <p data-sent-body></p>
         <button type="button" class="link-button" data-form-reset>${f.sendAnother}</button>
       </div>

@@ -135,11 +135,6 @@
   gap: 12px;
 }
 
-.button-row--tight {
-  gap: 10px;
-  padding-top: 4px;
-}
-
 .arrow-link {
   align-self: flex-start;
   display: inline-flex;
@@ -277,21 +272,6 @@
   background: var(--gradient-brand);
   font-size: 22px;
   color: var(--color-on-dark);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tags li {
-  padding: 7px 12px;
-  border-radius: 8px;
-  background: var(--color-surface-muted);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--color-text-strong);
 }
 
 .badges {
