@@ -1,12 +1,11 @@
 import { interpolate } from '../shared/format.ts';
-import type { Chips } from './chips.ts';
 import { pageLocale, prefersReducedMotion, type ClientStrings } from './env.ts';
 
 type Field = 'name' | 'email' | 'message';
-type Values = Record<'name' | 'company' | 'email' | 'message' | 'website', string>;
+type Values = Record<'name' | 'company' | 'email' | 'phone' | 'message', string>;
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// Roughly how long the smooth scroll to #contact takes; focusing earlier would cut it short.
+// Roughly how long the smooth scroll to the form takes; focusing earlier would cut it short.
 const SCROLL_SETTLE_MS = 650;
 
 function validate(values: Values, m: ClientStrings): Partial<Record<Field, string>> {
@@ -19,29 +18,22 @@ function validate(values: Values, m: ClientStrings): Partial<Record<Field, strin
 }
 
 function mailtoHref(form: HTMLFormElement, values: Values, m: ClientStrings) {
-  const body = [values.message, '', values.name, values.company, values.website].filter((line, i) => i < 2 || line).join('\n');
+  const body = [values.message, '', values.name, values.company, values.phone].filter((line, i) => i < 2 || line).join('\n');
   const address = form.getAttribute('action')!.slice('mailto:'.length);
   return `mailto:${address}?subject=${encodeURIComponent(interpolate(m.form.mailSubject, { name: values.name }))}&body=${encodeURIComponent(body)}`;
 }
 
-/** Links that jump to the form: optionally prefill the message, then focus a field once scrolled. */
-function initContactLinks(form: HTMLFormElement, m: ClientStrings, chips: Chips) {
+/** Links that jump to the form focus one of its fields once scrolled. */
+function initContactLinks(form: HTMLFormElement) {
   document.addEventListener('click', e => {
     const link = (e.target as Element).closest<HTMLElement>('[data-contact-focus]');
     if (!link) return;
-    const message = form.elements.namedItem('message') as HTMLTextAreaElement;
-    const prefill =
-      link.dataset.prefill ??
-      ('prefillChip' in link.dataset
-        ? interpolate(m.prefill.automate, { task: chips.activeLabel().toLocaleLowerCase(pageLocale()) })
-        : '');
-    if (prefill && !message.value.trim()) message.value = prefill;
     const target = form.elements.namedItem(link.dataset.contactFocus!) as HTMLElement | null;
     window.setTimeout(() => target?.focus({ preventScroll: true }), prefersReducedMotion() ? 0 : SCROLL_SETTLE_MS);
   });
 }
 
-export function initContact(m: ClientStrings, chips: Chips) {
+export function initContact(m: ClientStrings) {
   const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
   if (!form) return;
   const sent = document.querySelector<HTMLElement>('[data-form-sent]')!;
@@ -49,7 +41,7 @@ export function initContact(m: ClientStrings, chips: Chips) {
   const formError = form.querySelector<HTMLElement>('[data-form-error]')!;
   const useMailto = form.getAttribute('action')!.startsWith('mailto:');
 
-  initContactLinks(form, m, chips);
+  initContactLinks(form);
 
   const input = (name: string) => form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
 

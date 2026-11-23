@@ -1,0 +1,55 @@
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+}
+
+.pain-card {
+  gap: 12px;
+}
+
+.pain-card__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 6px;
+  border-radius: 12px;
+  background: var(--color-blue-tint);
+  font-size: 22px;
+  color: var(--color-blue-dark);
+}
+
+.example-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px dashed var(--color-border-dashed);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-alt);
+}
+
+.example-box__label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-blue-dark);
+}
+
+.example-box__text {
+  max-width: 34em;
+  font-size: clamp(19px, 2vw, 24px);
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.example-box__note {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+}

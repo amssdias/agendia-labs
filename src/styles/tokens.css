@@ -2,12 +2,11 @@
  * Design tokens from the Claude Design file.
  *
  * Breakpoints (media queries can't read custom properties, so they're listed here instead):
- *   640px  – ROI calculator goes horizontal
+ *   640px  – taller calendar embed below it; FAQ spacing
  *   768px  – sticky mobile booking bar disappears
- *   860px  – before/after comparison side by side
- *   900px  – use-case chain and automation recipe go horizontal
- *   960px  – two-column blocks: demo, first call, FAQ, contact
- *   1000px – hero two columns, horizontal process timeline
+ *   900px  – "how it works" steps and sector examples go horizontal
+ *   960px  – FAQ two columns
+ *   1000px – hero two columns
  *   1160px – full desktop navigation (the design used 1080px; the language switch needs the extra room)
  */
 :root {

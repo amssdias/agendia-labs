@@ -37,7 +37,6 @@ jobs:
       - run: npm run build
         env:
           SITE_URL: ${{ vars.SITE_URL || steps.pages.outputs.base_url }}
-          SITE_BOOKING_URL: ${{ vars.SITE_BOOKING_URL }}
           SITE_FORM_ENDPOINT: ${{ vars.SITE_FORM_ENDPOINT }}
 
       - uses: actions/upload-pages-artifact@v4

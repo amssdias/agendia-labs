@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import { i18nHtml } from './src/plugins/i18n-html.ts';
-import { basePathFromUrl, LOCALES, SITE_DEFAULTS, type SiteConfig } from './src/site.ts';
+import { basePathFromUrl, LOCALES, PAGES, SITE_DEFAULTS, type PageKey, type SiteConfig } from './src/site.ts';
 
 const entry = (path: string) => fileURLToPath(new URL(path, import.meta.url));
 
@@ -12,7 +12,6 @@ export default defineConfig(({ mode }) => {
     ...SITE_DEFAULTS,
     url,
     basePath: basePathFromUrl(url),
-    bookingUrl: env.SITE_BOOKING_URL || SITE_DEFAULTS.bookingUrl,
     formEndpoint: env.SITE_FORM_ENDPOINT || SITE_DEFAULTS.formEndpoint,
   };
 
@@ -27,6 +26,11 @@ export default defineConfig(({ mode }) => {
         input: {
           root: entry('./index.html'),
           ...Object.fromEntries(LOCALES.map(locale => [locale, entry(`./${locale}/index.html`)])),
+          ...Object.fromEntries(
+            LOCALES.flatMap(locale =>
+              (Object.keys(PAGES) as PageKey[]).map(page => [`${locale}-${page}`, entry(`./${locale}/${PAGES[page][locale]}/index.html`)]),
+            ),
+          ),
         },
       },
     },

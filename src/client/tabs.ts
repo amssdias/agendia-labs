@@ -1,4 +1,4 @@
-/** WAI-ARIA tabs: click or arrow keys switch the industry use case in #solutions. */
+/** WAI-ARIA tabs: click or arrow keys switch the panel, e.g. the sector examples. */
 export function initTabs() {
   document.querySelectorAll<HTMLElement>('[data-tabs]').forEach(list => {
     const tabs = [...list.querySelectorAll<HTMLButtonElement>('[role="tab"]')];

@@ -1,13 +1,13 @@
 # Agendia Labs landing page
 
-Bilingual (English / Spanish) marketing site for Agendia Labs, built from the Claude Design file
-`DiasFlow Landing ES.dc.html` (Spanish) and `DiasFlow Landing v2.dc.html` (English).
+Bilingual (English / Spanish) landing page for Agendia Labs' AI receptionist: it answers calls and
+WhatsApp, books appointments and alerts the owner. Aimed at local appointment-based businesses in Spain.
 
 - **Vite + TypeScript**, no UI framework.
 - Every language is rendered to **static HTML at build time**, so each page is complete for
   search engines, social previews and visitors without JavaScript.
 - Translations are **type-checked**: a key missing from one language fails the build.
-- The browser script (~3.5 KB gzipped) only adds interaction.
+- The browser script (~2.5 KB gzipped) only adds interaction.
 
 ## Quick start
 
@@ -26,29 +26,31 @@ npm run preview    # serve dist/ locally
 index.html                 Root page: redirects to /en/ or /es/ by browser language
 en/index.html              Entry shell per language; the build fills in <!--app-head--> / <!--app-body-->
 es/index.html
+en/legal-notice/, en/privacy/, es/aviso-legal/, es/privacidad/
+                           Entry shells for the legal pages (folders listed in PAGES in src/site.ts)
 vite.config.ts             Reads .env, registers the i18n plugin and the three HTML entries
-.env                       Build settings (site URL, booking URL, form endpoint)
-public/                    Copied as-is: favicon, placeholder images
+.env                       Build settings (site URL, form endpoint)
+public/                    Copied as-is: favicon, social preview images
 src/
-  site.ts                  Locales, default locale, SiteConfig type and defaults
-  content/catalog.ts       Language-independent structure: keys, icons, ordering, calculator limits
+  site.ts                  Locales, secondary pages, SiteConfig type and defaults
+  content/
+    config.ts              Calendar URL, phone numbers, legal details, case study switch
+    catalog.ts             Language-independent structure: section ids, keys, icons, ordering
   i18n/
     types.ts               Messages interface (the contract every language must satisfy)
     en.ts, es.ts           All copy
   render/                  Build-time only (runs in Node)
     page.ts                Assembles <head> (SEO, hreflang, JSON-LD) and <body> for one locale
-    sections/*.ts          One function per page section, returning escaped HTML
+    sections/*.ts          One function per page section, returning escaped HTML (legal.ts: legal pages)
     html.ts                `html` tagged template with auto-escaping, `fill()` for inline markup in translations
     icon.ts                Inlines only the Phosphor icons that are used
-    components.ts          Shared bits: booking button, section heading, logo
+    components.ts          Shared bits: booking and demo call buttons, section heading, logo
   plugins/i18n-html.ts     Vite plugin: renders each /<locale>/index.html, emits sitemap.xml and robots.txt
-  shared/format.ts         Number and plural formatting, used both at build time and in the browser
+  shared/format.ts         Placeholder filling, used both at build time and in the browser
   client/                  Browser-only interaction
-    main.ts                Entry point
-    flow.ts                Hero "new lead to meeting" animation
-    tabs.ts                Industry tabs (#solutions)
-    chips.ts               Manual-task picker (#automate)
-    roi.ts                 Hours calculator (#value)
+    main.ts                Entry point of the home page
+    legal.ts               Entry point of the legal pages (styles only)
+    tabs.ts                Sector tabs
     contact.ts             Contact form validation, submission and "jump to form" links
     header.ts              Mobile menu, active nav link, sticky mobile booking bar
     reveal.ts              Fade-in on scroll
@@ -61,13 +63,13 @@ src/
 
 ## How the translations work
 
-1. `src/content/catalog.ts` defines *what* is on the page: the services, use cases, tasks,
-   process steps, with their keys and icons.
+1. `src/content/catalog.ts` defines *what* is on the page: the pains, steps, sectors and plans,
+   with their keys and icons.
 2. `src/i18n/types.ts` defines the `Messages` interface. Collections are typed as
    `Record<Key, …>` against the catalog keys, so every language must translate every item.
 3. At build time (and on every request in dev), the `i18n-html` plugin renders each
    `/<locale>/index.html` with that language's messages.
-4. Strings the browser script needs (form errors, calculator labels, animation status) come from
+4. Strings the browser script needs (form errors and states) come from
    `Messages.client` and are embedded in each page as `<script type="application/json" id="client-messages">`.
    `main.ts` has no copy of its own.
 
@@ -75,12 +77,17 @@ In the dev server, editing a template or translation triggers a full page reload
 
 ### Editing copy
 
-Change the text in `src/i18n/en.ts` and `src/i18n/es.ts`. Placeholders such as `{people}`,
-`{email}` or `{name}` are filled in by the templates; keep them in both languages.
+Change the text in `src/i18n/en.ts` and `src/i18n/es.ts`. Placeholders such as `{email}`,
+`{name}` or `{link}` are filled in by the templates; keep them in both languages.
 
-### Adding an item (for example a new service)
+The sector examples (pain point and sample conversation) are in `sectors.items` of each language file.
 
-1. Add it to `SERVICES` in `src/content/catalog.ts` with a key and a
+FAQ answers set to `null` are still to be written: those questions are left off the page and out of
+the structured data until they get an answer.
+
+### Adding an item (for example a new sector)
+
+1. Add it to `SECTORS` in `src/content/catalog.ts` with a key and a
    [Phosphor icon](https://phosphoricons.com) name.
 2. `npm run build`: TypeScript lists every language that is missing the new key.
 3. Add the copy to each language file.
@@ -102,13 +109,31 @@ or production values in `.env.production`.
 | Variable | Default | Purpose |
 |---|---|---|
 | `SITE_URL` | `https://agendialabs.com` | Public URL of the site root, used for canonical URLs, hreflang, `og:url` and `sitemap.xml`. A path in it (`https://user.github.io/agendia-labs`) becomes the base path. |
-| `SITE_BOOKING_URL` | `#contact` | Target of every "Book a call" button. `#contact` scrolls to the form; any other URL (e.g. Cal.com) opens in a new tab. |
 | `SITE_FORM_ENDPOINT` | *(empty)* | URL the contact form POSTs to. Empty means the form opens a pre-filled email instead. |
 
 These variables are deliberately not prefixed with `VITE_`: they are rendered into the HTML at
 build time, so nothing extra is exposed to the client bundle.
 
 The contact email is in `SITE_DEFAULTS` in `src/site.ts`.
+
+### Page settings
+
+`src/content/config.ts` holds the settings that change what the page shows:
+
+| Constant | Purpose |
+|---|---|
+| `CALENDAR_URL` | Google Calendar appointment schedule, embedded in the booking section (`#reservar`) with `?gv=true`. Empty shows the contact form there instead. |
+| `DEMO_PHONE` | Number of the demo receptionist, behind the "Call and try it" button. Empty hides the button. |
+| `SHOW_CASE_STUDY` | Shows the case study block. Off until the client has approved it. |
+| `CONTACT_PHONE` | Contact number, shown with call and WhatsApp links in the footer, the booking section and the legal notice. Empty hides them. |
+| `LEGAL_OWNER` | Name, tax ID (NIF) and address of the website owner, for the legal notice, the privacy policy and the notice under the form. |
+| `LEGAL_UPDATED` | Date of the last change to the legal pages, as `YYYY-MM-DD`. |
+| `FORM_PROVIDER` | Service that receives the contact form, listed as a recipient in the privacy policy. |
+
+Empty legal details show as a highlighted `TODO` on the page, so they can't go unnoticed.
+
+Every booking button links to `#reservar` and carries a `data-cta` attribute (`reservar`, `llamar-demo`,
+`ver-plan` with `data-plan`) for click tracking once analytics is added.
 
 ### Contact form endpoint
 
@@ -122,8 +147,8 @@ Content-Type: application/json
   "name": "…",
   "company": "…",
   "email": "…",
+  "phone": "…",
   "message": "…",
-  "website": "…",
   "locale": "en",
   "page": "https://agendialabs.com/en/"
 }
@@ -138,11 +163,13 @@ because of the JSON content type.
 
 ## Before going live
 
-- **Workflow screenshot**: replace `public/img/demo-workflow.svg` with a 1600×1100 screenshot of
-  the n8n workflow, and update the `src` in `src/render/sections/demo.ts`.
+- **Page settings**: fill in `CALENDAR_URL` and `DEMO_PHONE` in `src/content/config.ts`.
+- **FAQ**: write the answers left as `null` in both language files.
+- **Legal pages**: fill in `LEGAL_OWNER`, `LEGAL_UPDATED` and `FORM_PROVIDER`, and the retention period
+  (`{todo}` in the privacy policy of each language file). Have the texts reviewed before publishing.
 - **Social preview images**: `public/og-image-en.png` and `public/og-image-es.png` (1200×630), one per
   language. They show the hero headline, so update them if it changes.
-- Set `SITE_FORM_ENDPOINT` (and `SITE_BOOKING_URL` if you use a calendar tool).
+- Set `SITE_FORM_ENDPOINT`.
 
 ## Deployment
 
@@ -151,10 +178,10 @@ because of the JSON content type.
 ```
 dist/
   index.html        language redirect (noindex)
-  en/index.html
-  es/index.html
+  en/index.html, en/legal-notice/, en/privacy/
+  es/index.html, es/aviso-legal/, es/privacidad/
   assets/           hashed CSS and JS (safe to cache forever)
-  img/, favicon.svg
+  favicon.svg, og-image-*.png
   sitemap.xml, robots.txt
 ```
 
@@ -172,7 +199,6 @@ One-time setup:
 1. **Settings → Pages → Build and deployment → Source**: choose **GitHub Actions**.
 2. Optional: under **Settings → Secrets and variables → Actions → Variables**, add repository variables:
    - `SITE_FORM_ENDPOINT`: contact form endpoint.
-   - `SITE_BOOKING_URL`: external booking link. Leave unset to keep `#contact`.
    - `SITE_URL`: only if the public URL differs from what GitHub Pages reports.
 
 `SITE_URL` defaults to the URL GitHub Pages reports for the repository:
@@ -195,6 +221,6 @@ is still valid and can be submitted in Google Search Console.
   - A skip link, and ARIA tabs with arrow-key support.
   - The FAQ uses native `<details name="faq">`, so it works as an accordion without JavaScript.
   - Form errors are announced and linked to their fields.
-  - `prefers-reduced-motion` disables the hero animation, the counters and the fade-ins.
-- **External resources**: the Geist font loads from Google Fonts, and the n8n, Python, Django and
-  PostgreSQL logos come from `cdn.simpleicons.org`. Everything else is self-hosted.
+  - `prefers-reduced-motion` disables the smooth scrolling and the fade-ins.
+- **External resources**: the Geist font loads from Google Fonts, and the booking calendar from
+  Google Calendar once `CALENDAR_URL` is set. Everything else is self-hosted.

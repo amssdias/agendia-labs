@@ -1,6 +1,8 @@
-import { bookLink } from '../components.ts';
+import { LEGAL_OWNER } from '../../content/config.ts';
+import { localePath } from '../../site.ts';
+import { orTodo } from '../components.ts';
 import type { RenderContext } from '../context.ts';
-import { html } from '../html.ts';
+import { fill, html } from '../html.ts';
 import { icon } from '../icon.ts';
 
 function field(
@@ -17,7 +19,7 @@ function field(
     </div>`;
 }
 
-function contactForm({ t, site }: RenderContext) {
+export function contactForm({ t, site, locale }: RenderContext) {
   const f = t.contact.form;
   // Without an endpoint the form degrades to the visitor's mail client, even without JS.
   const action = site.formEndpoint || `mailto:${site.email}`;
@@ -41,49 +43,27 @@ function contactForm({ t, site }: RenderContext) {
           )}
           ${field('company', f.company, html`<input id="contact-company" name="company" autocomplete="organization" class="input">`)}
         </div>
-        ${field(
-          'email',
-          f.email,
-          html`<input id="contact-email" name="email" type="email" autocomplete="email" required aria-describedby="contact-email-error" class="input">`,
-          { error: true },
-        )}
+        <div class="contact-form__row">
+          ${field(
+            'email',
+            f.email,
+            html`<input id="contact-email" name="email" type="email" autocomplete="email" required aria-describedby="contact-email-error" class="input">`,
+            { error: true },
+          )}
+          ${field('phone', f.phone, html`<input id="contact-phone" name="phone" type="tel" autocomplete="tel" class="input">`, { hint: f.optional })}
+        </div>
         ${field(
           'message',
           f.message,
           html`<textarea id="contact-message" name="message" rows="4" required aria-describedby="contact-message-error" placeholder="${f.messagePlaceholder}" class="input input--textarea"></textarea>`,
           { error: true },
         )}
-        ${field(
-          'website',
-          f.website,
-          html`<input id="contact-website" name="website" type="url" autocomplete="url" placeholder="${f.websitePlaceholder}" class="input">`,
-          { hint: f.optional },
-        )}
         <p class="form-error" role="alert" hidden data-form-error></p>
         <button type="submit" class="btn btn--primary btn--lg btn--block" data-form-submit>${t.client.form.submit}</button>
-        <p class="contact-form__privacy">${f.privacy}</p>
+        <p class="contact-form__privacy">${fill(f.privacy, {
+          owner: orTodo(LEGAL_OWNER.name),
+          link: html`<a href="${localePath(site, locale, 'privacy')}">${f.privacyLink}</a>`,
+        })}</p>
       </form>
     </div>`;
-}
-
-export function contact(ctx: RenderContext) {
-  const { t } = ctx;
-  return html`
-<section id="contact" class="contact" aria-labelledby="contact-title">
-  <div class="contact__grid-bg" aria-hidden="true"></div>
-  <div class="contact__glow contact__glow--blue" aria-hidden="true"></div>
-  <div class="contact__glow contact__glow--cyan" aria-hidden="true"></div>
-  <div class="container contact__inner">
-    <div class="contact__copy">
-      <h2 id="contact-title" class="contact__title">${t.contact.title}</h2>
-      <p class="contact__tagline">${t.contact.tagline}</p>
-      <div class="button-row">
-        ${bookLink(ctx, t.common.bookCall, 'btn--primary btn--lg btn--glow', { arrow: true })}
-        <a href="#contact-form" class="btn btn--lg btn--ghost-dark" data-contact-focus="message">${t.contact.secondaryCta}</a>
-      </div>
-      <p class="contact__note">${t.contact.reassurance}</p>
-    </div>
-    ${contactForm(ctx)}
-  </div>
-</section>`;
 }

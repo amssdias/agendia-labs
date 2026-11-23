@@ -60,10 +60,6 @@
     0 14px 36px -12px rgba(59, 130, 246, 0.9);
 }
 
-.btn--shadow {
-  box-shadow: 0 12px 28px -12px rgba(37, 99, 235, 0.8);
-}
-
 .btn--ghost-dark {
   padding-inline: 24px;
   border-color: rgba(148, 163, 184, 0.3);
@@ -77,16 +73,6 @@
   color: var(--color-on-dark);
 }
 
-.btn--light {
-  background: var(--color-surface);
-  color: var(--color-ink);
-}
-
-.btn--light:hover {
-  color: var(--color-ink);
-  transform: translateY(-1px);
-}
-
 .btn--outline {
   border-color: var(--color-ink);
   color: var(--color-ink);
@@ -97,31 +83,8 @@
   color: var(--color-on-dark);
 }
 
-.btn--dark {
-  background: var(--color-ink);
-  color: var(--color-on-dark);
-}
-
-.btn--dark:hover {
-  background: var(--color-slate-800);
-  color: var(--color-on-dark);
-}
-
-.btn--pill {
-  border-color: var(--color-border-strong);
-  color: var(--color-ink);
-}
-
-.btn--pill:hover {
-  border-color: var(--color-ink);
-  color: var(--color-ink);
-}
-
-.btn--pill .icon {
-  font-size: 19px;
-}
-
 /* Long translated labels must not push the page wider than a phone screen. */
+
 @media (max-width: 479.98px) {
   .btn {
     white-space: normal;
@@ -133,22 +96,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-}
-
-.arrow-link {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-blue-dark);
-  transition: gap 0.2s;
-}
-
-.arrow-link:hover {
-  gap: 12px;
-  color: var(--color-blue-dark);
 }
 
 .link-button {
@@ -171,19 +118,6 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-}
-
-.card--lift {
-  box-shadow: 0 1px 2px rgba(11, 17, 32, 0.04);
-  transition:
-    transform 0.25s var(--ease-out),
-    box-shadow 0.25s,
-    border-color 0.25s;
-}
-
-.card--lift:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px -20px rgba(11, 17, 32, 0.22);
 }
 
 .card__title {
@@ -247,21 +181,6 @@
   font-size: 18px;
 }
 
-.eyebrow {
-  align-self: flex-start;
-  display: inline-flex;
-  padding: 7px 12px;
-  border: 1px solid rgba(34, 211, 238, 0.25);
-  border-radius: var(--radius-pill);
-  background: rgba(34, 211, 238, 0.06);
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-cyan);
-}
-
 .gradient-icon {
   flex: none;
   display: grid;
@@ -272,55 +191,4 @@
   background: var(--gradient-brand);
   font-size: 22px;
   color: var(--color-on-dark);
-}
-
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.badge {
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.badge--high {
-  background: #dcfce7;
-  color: #166534;
-}
-
-.badge--medium {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-.badge--low {
-  background: var(--color-surface-muted);
-  color: var(--color-text-muted);
-}
-
-.checklist {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.checklist li {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  font-size: 16.5px;
-  font-weight: 500;
-}
-
-.checklist .icon {
-  font-size: 18px;
-  color: var(--color-blue-dark);
 }

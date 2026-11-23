@@ -2,23 +2,23 @@ import type { Messages } from './types.ts';
 
 export const en: Messages = {
   meta: {
-    title: 'AI Business Process Automation for SMEs | Agendia Labs',
+    title: 'AI Receptionist for Appointment-Based Businesses | Agendia Labs',
     description:
-      'AI business process automation for SMEs: Agendia Labs automates lead follow-ups, CRM updates, WhatsApp and repetitive work with custom integrations.',
-    ogTitle: 'AI Business Process Automation for SMEs | Agendia Labs',
+      'AI receptionist for appointment-based businesses: answers calls and WhatsApp 24/7, books and moves appointments in your calendar, and lets you know when it matters.',
+    ogTitle: 'Every call you miss is an appointment you lose | Agendia Labs',
     ogDescription:
-      'Automate lead follow-ups, CRM updates and repetitive work with AI and custom backend integrations. Book a free 20-minute automation call.',
-    ogImageAlt: 'Agendia Labs: automate the work slowing your business down',
+      'An AI receptionist that answers calls and WhatsApp at any hour and books appointments into your calendar. You keep working.',
+    ogImageAlt: 'Agendia Labs: every call you miss is an appointment you lose',
     ogLocale: 'en_GB',
   },
   schema: {
     description:
-      'AI automation services, business process automation, CRM and WhatsApp automation, and API integration services for small and medium businesses.',
-    knowsAbout: ['AI automation', 'Workflow automation', 'CRM automation', 'WhatsApp automation', 'API integrations', 'AI agents'],
+      'AI receptionist for local appointment-based businesses: answers calls and WhatsApp messages, books and changes appointments, and alerts the owner when needed.',
+    knowsAbout: ['AI receptionist', 'Call answering', 'WhatsApp booking', 'Appointment scheduling', 'Local SEO'],
   },
   common: {
-    bookCall: 'Book a Free Automation Call',
-    bookCallShort: 'Book Free Call',
+    book: 'Book 20 minutes',
+    step: 'Step',
     home: 'Agendia Labs home',
     mainNav: 'Main',
     menu: 'Menu',
@@ -26,388 +26,338 @@ export const en: Messages = {
     skipToContent: 'Skip to content',
   },
   nav: {
-    services: 'Services',
-    solutions: 'Solutions',
-    'how-it-works': 'How It Works',
+    how: 'How it works',
+    plans: 'Plans',
     faq: 'FAQ',
   },
   hero: {
-    eyebrow: 'AI Automation & Backend Integrations',
-    title: 'Automate the work slowing your business down.',
-    lead: 'Agendia Labs builds AI automations and custom integrations that help businesses capture leads, automate follow-ups, connect their tools and eliminate repetitive work.',
-    secondaryCta: 'See What We Can Automate',
-    reassurance: 'No commitment • 20-minute discovery call',
-    flowLabel: 'Example automation: new lead, AI qualification, CRM, WhatsApp or email follow-up, meeting booked',
-    flowTitle: 'New lead to meeting',
-    flow: {
-      lead: { title: 'New lead', detail: 'Quote request submitted on your website' },
-      qualify: { title: 'AI qualification', detail: 'Budget and timing checked, marked high priority' },
-      crm: { title: 'CRM', detail: 'Deal created and assigned to the right owner' },
-      followUp: { title: 'WhatsApp / Email follow-up', detail: 'Personal reply sent with a booking link' },
-      meeting: { title: 'Meeting booked', detail: 'Call added to the sales calendar' },
+    title: 'Every call you miss is an appointment you lose.',
+    lead: 'An AI receptionist that answers calls and WhatsApp at any hour and books appointments into your calendar. You keep working.',
+    sectors: 'For garages, vet clinics, physiotherapy and any business that works by appointment.',
+    demoCta: 'Call and try it',
+    note: 'No commitment · 20-minute call',
+    preview: {
+      label: 'Example: a call after hours',
+      call: { title: 'Call answered', detail: '21:47 · Wants an appointment this week' },
+      booked: { title: 'Appointment in your calendar', detail: 'Thursday, 9:00' },
+      notice: { title: 'Alert for you', detail: 'New appointment confirmed' },
     },
-    techIntro: 'Built with technologies businesses can rely on',
-    techListLabel: 'Technologies Agendia Labs builds with',
-    restApis: 'REST APIs',
   },
-  problems: {
-    title: 'Does this sound familiar?',
+  problem: {
+    title: 'Sound familiar?',
     items: {
-      slowFollowUp: {
-        title: 'Leads arrive but nobody follows up fast enough',
-        text: 'Potential customers lose interest while waiting for a response.',
+      busy: {
+        title: 'You’re with a customer and the phone rings.',
+        text: 'You can’t drop what you’re doing, so the caller tries someone else.',
       },
-      copying: {
-        title: 'Your team copies information between different tools',
-        text: 'Hours disappear every week doing work that software could handle.',
+      closed: {
+        title: 'You close, and people keep calling.',
+        text: 'At lunchtime, in the evening or at the weekend, nobody picks up.',
       },
-      repeatQuestions: {
-        title: 'Customers ask the same questions repeatedly',
-        text: 'Your team spends valuable time responding manually.',
-      },
-      memory: {
-        title: 'Important follow-ups depend on someone remembering',
-        text: 'Opportunities disappear because the process is not systematic.',
-      },
-      disconnected: {
-        title: "Your tools don't communicate with each other",
-        text: 'Information is spread between email, spreadsheets, the CRM and internal systems.',
+      lateNight: {
+        title: 'You’re answering WhatsApps at 11 at night.',
+        text: 'So you don’t lose the booking, work follows you home.',
       },
     },
-    callout: "If a process is repetitive, predictable and digital, there's a good chance it can be automated.",
-    calloutCta: 'Show Me What I Can Automate',
+    exampleLabel: 'Do the maths',
+    example: '3 missed calls a day. If 1 in 3 was a €60 appointment, that’s around €1,200 a month.',
+    disclaimer: 'Illustrative example, not a guarantee.',
   },
-  transformation: {
-    title: 'From manual chaos to automated workflows.',
-    lead: 'The same lead, handled two ways.',
-    before: {
-      title: 'Before',
-      badge: 'Done by hand',
-      steps: [
-        'Lead arrives',
-        'Someone checks email, eventually',
-        'Data copied manually',
-        'Spreadsheet updated',
-        'Message sent',
-        'Remember to follow up',
-      ],
-    },
-    after: {
-      title: 'After, with Agendia Labs',
-      badge: 'Runs automatically',
-      steps: [
-        'Lead arrives',
-        'AI qualifies the lead',
-        'CRM updated automatically',
-        'Personalised follow-up sent',
-        'Sales team notified',
-        'Meeting booked',
-      ],
+  how: {
+    title: 'How it works',
+    lead: 'Three steps, without you having to stop what you’re doing.',
+    steps: {
+      contact: {
+        title: 'They call or message you',
+        text: 'By phone or on WhatsApp, at any hour.',
+      },
+      answer: {
+        title: 'The receptionist replies, answers questions and books the appointment',
+        text: 'It uses your business’s information: opening hours, services and free slots.',
+      },
+      booked: {
+        title: 'The appointment lands in your calendar and you get an alert',
+        text: 'And if something needs you, it lets you know.',
+      },
     },
   },
-  services: {
-    title: 'Automation services that solve real business problems',
-    lead: 'Start with one problem. Every service can run on its own or connect to the others.',
-    problemLabel: 'Problem:',
-    explore: 'Explore automation',
+  sectors: {
+    title: 'For businesses that work by appointment',
+    lead: 'Pick yours and see what a conversation would look like.',
+    tabsLabel: 'Sectors',
+    exampleLabel: 'Example conversation',
+    speakers: { client: 'Customer', agent: 'Receptionist' },
     items: {
-      lead: {
-        title: 'AI Lead Automation',
-        problem: 'Leads wait hours for a reply and go cold.',
-        solution: 'Capture, qualify and route incoming leads automatically.',
-        result: 'Respond faster and reduce lost opportunities.',
+      garages: {
+        label: 'Garages',
+        pain: 'With your hands in an engine you can’t pick up the phone, and the customer calls the next garage.',
+        conversation: [
+          { from: 'client', text: 'Hi, could you do an oil change this week?' },
+          { from: 'agent', text: 'Of course. I have a slot on Thursday at 9:00 or Friday at 12:00. Which suits you better?' },
+          { from: 'client', text: 'Thursday at 9.' },
+          { from: 'agent', text: 'Done: Thursday at 9:00, oil change. I’ll send you the confirmation on WhatsApp.' },
+        ],
+      },
+      vets: {
+        label: 'Vet clinics',
+        pain: 'Between appointments the phone never stops, and reception can’t keep up.',
+        conversation: [
+          { from: 'client', text: 'Hi, I’d like to book my dog in for his vaccination.' },
+          { from: 'agent', text: 'Perfect. Does tomorrow at 17:30 work for you?' },
+          { from: 'client', text: 'Yes, that works.' },
+          { from: 'agent', text: 'Booked: tomorrow at 17:30, vaccination. You’ll get a reminder before the appointment.' },
+        ],
+      },
+      physio: {
+        label: 'Physiotherapy',
+        pain: 'In the middle of a session you can’t stop to answer, and the messages pile up.',
+        conversation: [
+          { from: 'client', text: 'Hi, do you have anything this week? My back’s been hurting.' },
+          { from: 'agent', text: 'Yes. I can offer Wednesday at 19:00 or Thursday at 10:00.' },
+          { from: 'client', text: 'Wednesday, please.' },
+          { from: 'agent', text: 'Booked: Wednesday at 19:00. I’ll confirm it on WhatsApp.' },
+        ],
+      },
+      other: {
+        label: 'Other appointment-based business',
+        pain: 'Hairdressers, beauty salons, academies, practices: if you work by appointment, the problem is the same.',
+        conversation: [
+          { from: 'client', text: 'Hi, I’d like to book an appointment for Saturday.' },
+          { from: 'agent', text: 'On Saturday I have 10:00 and 12:30 free.' },
+          { from: 'client', text: '10, please.' },
+          { from: 'agent', text: 'All set: Saturday at 10:00. You’ll get the confirmation in a moment.' },
+        ],
+      },
+    },
+  },
+  plans: {
+    title: 'Plans',
+    lead: 'Choose how your customers reach you.',
+    cta: 'See if it’s right for me',
+    featuredBadge: 'Most complete',
+    items: {
+      voice: {
+        title: 'Voice receptionist',
+        audience: 'For businesses that get more calls than they can answer.',
+        features: ['Answers calls at any hour', 'Books and changes appointments in your calendar', 'Puts urgent calls through to you'],
       },
       whatsapp: {
-        title: 'WhatsApp & Customer Communication',
-        problem: 'Your team answers the same messages all day.',
-        solution: 'Automate common conversations, qualification and follow-ups.',
-        result: 'Customers get fast responses without increasing workload.',
+        title: 'WhatsApp bookings',
+        audience: 'For businesses that get lots of messages.',
+        features: ['Answers questions straight away', 'Books and changes appointments in your calendar', 'Sends reminders before each appointment'],
       },
-      crm: {
-        title: 'CRM Automation',
-        problem: 'The CRM is always out of date.',
-        solution: 'Create leads, update records, assign owners and trigger follow-ups automatically.',
-        result: 'An organised sales process without repetitive admin.',
-      },
-      workflow: {
-        title: 'Workflow Automation',
-        problem: 'Data is copied by hand from one tool to the next.',
-        solution: 'Connect forms, spreadsheets, CRMs, email, databases and internal tools.',
-        result: 'Repetitive manual processes removed.',
-      },
-      backend: {
-        title: 'Backend & API Integrations',
-        problem: 'Your tools have no built-in way to connect.',
-        solution: 'Custom integrations when standard automation tools are not enough.',
-        result: 'Systems that couldn’t communicate now share data.',
-      },
-      agents: {
-        title: 'AI Agents',
-        problem: 'Some tasks are too varied for simple rules.',
-        solution: 'Specialised AI systems that handle defined business workflows.',
-        result: 'More complex tasks automated, with human control where needed.',
+      both: {
+        title: 'Voice + WhatsApp',
+        audience: 'For businesses that want calls and messages covered.',
+        features: ['Everything in the voice receptionist', 'Everything in WhatsApp bookings'],
       },
     },
-  },
-  solutions: {
-    title: 'What could Agendia Labs automate for your business?',
-    tabsLabel: 'Industries',
-    cases: {
-      'real-estate': {
-        label: 'Real estate',
-        outcome: 'Buyers get a reply while they are still browsing, and viewings land straight in the agent’s calendar.',
-        steps: ['Website / Idealista lead', 'Qualification', 'CRM', 'WhatsApp follow-up', 'Viewing scheduled'],
-      },
-      clinics: {
-        label: 'Clinics',
-        outcome: 'Patients get answers outside opening hours, and reception only handles what needs a person.',
-        steps: ['Patient enquiry', 'FAQ response', 'Patient qualification', 'Appointment request', 'Reminder'],
-      },
-      service: {
-        label: 'Service businesses',
-        outcome: 'The best leads are contacted first, and every other lead still gets a timely follow-up.',
-        steps: ['Website form', 'Lead scoring', 'CRM', 'Follow-up sequence', 'Sales notification'],
-      },
-      agencies: {
-        label: 'Agencies',
-        outcome: 'Every new client gets the same smooth start, without anyone setting it up by hand.',
-        steps: ['New client', 'CRM', 'Project creation', 'Documents', 'Internal notification', 'Onboarding email'],
-      },
+    extra: {
+      badge: 'Extra',
+      title: 'Online presence',
+      text: 'Website, Google Business Profile and local SEO, so people find you when they search for a business like yours nearby.',
     },
-    missing: {
-      title: "Don't see your industry?",
-      text: 'Most businesses have processes that can be automated.',
-      cta: 'Discuss Your Workflow',
-    },
+    note: 'Every business is different. We’ll recommend a plan on a 20-minute call.',
   },
-  automate: {
-    title: 'What are you still doing manually?',
-    lead: 'Pick a task to see how it could run on its own.',
-    chipsLabel: 'Manual tasks',
-    when: 'When',
-    result: 'Result',
-    note: 'This is an example. Yours would be built around your tools.',
-    cta: "Let's Automate It",
-    chips: {
-      followups: {
-        label: 'Lead follow-ups',
-        trigger: 'A lead hasn’t replied within a day',
-        steps: ['Personal follow-up email is sent', 'WhatsApp reminder two days later', 'Owner is alerted if there is still no reply'],
-        result: 'No lead is left waiting or forgotten.',
-      },
-      crm: {
-        label: 'CRM updates',
-        trigger: 'A form is submitted or an email arrives',
-        steps: ['Contact is matched or created', 'Deal stage is updated', 'The right owner is assigned'],
-        result: 'Your CRM stays current with no copy and paste.',
-      },
-      questions: {
-        label: 'Customer questions',
-        trigger: 'A customer asks something on WhatsApp or your website',
-        steps: ['AI answers using your FAQ and policies', 'Unclear cases are passed to your team', 'Conversation is saved to the CRM'],
-        result: 'Instant answers. Your team only handles the exceptions.',
-      },
-      email: {
-        label: 'Email sequences',
-        trigger: 'Someone requests a quote or downloads a guide',
-        steps: ['Welcome email goes out', 'Follow-ups adapt to what they open', 'Sequence stops as soon as they reply'],
-        result: 'Consistent follow-up without sending anything by hand.',
-      },
-      reports: {
-        label: 'Reports',
-        trigger: 'Every Monday morning',
-        steps: ['Data is pulled from CRM, sheets and billing', 'A weekly summary is generated', 'It’s sent to email or Slack'],
-        result: 'The numbers arrive before the week starts.',
-      },
-      data: {
-        label: 'Data entry',
-        trigger: 'An order, form or document arrives',
-        steps: ['Key fields are extracted automatically', 'Values are checked against your rules', 'Data is saved to the right system'],
-        result: 'Fewer typos and no retyping.',
-      },
-      reminders: {
-        label: 'Appointment reminders',
-        trigger: 'An appointment is booked',
-        steps: ['Confirmation is sent right away', 'Reminder goes out the day before', 'A rebooking link is sent if they cancel'],
-        result: 'Fewer no-shows and less time on the phone.',
-      },
-      invoices: {
-        label: 'Invoices',
-        trigger: 'A job or project is marked complete',
-        steps: ['Invoice is created in your billing tool', 'It’s sent to the client', 'A reminder follows if it’s overdue'],
-        result: 'You get paid without chasing.',
-      },
-      notifications: {
-        label: 'Internal notifications',
-        trigger: 'A high-priority lead or urgent request comes in',
-        steps: ['The right person is alerted in Slack or Teams', 'All context is attached', 'It escalates if nobody picks it up'],
-        result: 'Nothing important sits unseen.',
-      },
-      onboarding: {
-        label: 'Client onboarding',
-        trigger: 'A contract is signed',
-        steps: ['Client folder and project are created', 'Welcome email with next steps is sent', 'Kickoff call is scheduled'],
-        result: 'Every client gets the same smooth start.',
-      },
-    },
-  },
-  process: {
-    title: 'Automation without the complexity.',
-    lead: 'A clear process, with your approval before anything is built.',
-    stepLabel: 'Step {n}',
-    steps: {
-      discover: { title: 'Discover', text: 'We analyse your workflow and identify the tasks worth automating.' },
-      design: { title: 'Design', text: 'We create the automation architecture and define how your tools should work together.' },
-      build: { title: 'Build', text: 'We build, integrate and test the automation.' },
-      launch: { title: 'Launch', text: 'We deploy the system and make sure it works reliably.' },
-      improve: { title: 'Improve', text: 'We monitor and improve the workflow as your business evolves.' },
-    },
-    ctaNote: 'Step 1 starts with a free 20-minute call.',
-  },
-  demo: {
-    title: 'See an automation in action',
-    lead: 'A real workflow Agendia Labs builds, step by step.',
-    heading: 'Automatic Lead Qualification & Follow-up',
-    builtWith: 'Built with n8n + APIs + automated business logic.',
-    steps: [
-      'Lead submits form',
-      'Data validated',
-      'Budget analysed',
-      'Lead assigned a priority',
-      'Information stored',
-      'Follow-up triggered',
-    ],
-    priorityStep: 3,
-    priorities: { high: 'HIGH', medium: 'MEDIUM', low: 'LOW' },
-    outcome: 'Sales team focuses on the best opportunities',
-    cta: 'I Want Something Like This',
-    screenshotAlt: 'The n8n lead qualification workflow',
-    caption: 'The lead qualification workflow in n8n.',
-  },
-  value: {
-    title: "Automation doesn't need to replace your team. It gives them their time back.",
-    people: 'People',
-    hours: 'Hours per day',
-    fewerPeople: 'Fewer people',
-    morePeople: 'More people',
-    fewerHours: 'Fewer hours',
-    moreHours: 'More hours',
-    workingDays: 'Working days',
-    perMonth: 'Every month',
-    unit: 'hours of manual work',
-    note: 'Even automating part of that workflow can free dozens of hours for higher-value work.',
-    disclaimer: 'This is an illustration, not a guarantee.',
-  },
-  firstCall: {
-    title: "Not sure what you need to automate? That's exactly what the first call is for.",
-    paragraphs: [
-      "You don't need to understand AI, n8n or APIs.",
-      "Show us how your process works today and we'll identify where automation could make sense.",
-    ],
-    cta: 'Book My Free Automation Call',
-    points: ['No technical knowledge required', 'No commitment', 'Start with one workflow', 'Custom solutions', 'Human support'],
+  caseStudy: {
+    eyebrow: 'A case study',
+    title: 'Garage in Getafe — website and voice receptionist',
+    // TODO: write the case once the client gives permission. No figures.
+    text: 'TODO',
   },
   faq: {
-    title: 'Questions business owners ask',
+    title: 'Frequently asked questions',
     intro: 'Something else on your mind? Email {email}.',
     items: [
       {
-        q: 'What exactly can Agendia Labs automate?',
-        a: 'Most repetitive, rule-based digital work: lead capture and follow-up, CRM updates, customer questions, appointment reminders, reports, data entry, invoices and client onboarding. If it follows a predictable pattern, it is usually a good candidate.',
+        q: 'Does it sound like a robot?',
+        a: 'It speaks with a natural voice, but it’s an AI and doesn’t pretend to be a person. The best way to judge is to hear it yourself: we’ll show it to you on the 20-minute call.',
       },
       {
-        q: 'Do I need to change the tools my business already uses?',
-        a: 'Usually not. Automations are built around the tools you already use. If a tool is holding you back you will get an honest recommendation, but switching is never a requirement.',
+        q: 'What happens if it doesn’t know the answer?',
+        a: 'It doesn’t make things up. It puts the call through to you or sends you an alert with the customer’s details and what they need, so you can reply yourself.',
       },
+      // TODO: which calendars it works with.
+      { q: 'Does it work with my current calendar?', a: null },
+      // TODO: whether the business keeps its number (call forwarding, new number...).
+      { q: 'Do I need to change my phone number?', a: null },
+      // TODO: real set-up time.
+      { q: 'How long does it take to set up?', a: null },
       {
-        q: 'Can you integrate with my CRM?',
-        a: 'Yes. Most CRMs, including HubSpot, Pipedrive, Salesforce and Zoho, have APIs that allow records to be created, updated and read automatically.',
+        q: 'What happens to my customers’ data?',
+        a: 'It’s handled in line with the GDPR and only used to look after your customers and manage their appointments. On the call we’ll explain where it’s stored and who has access.',
       },
-      {
-        q: 'Can you automate WhatsApp?',
-        a: 'Yes, through the official WhatsApp Business Platform. Common uses include instant replies, lead qualification, reminders and handing conversations over to your team.',
-      },
-      {
-        q: 'Can you connect custom or internal software?',
-        a: 'Yes. Thanks to a backend engineering background, Agendia Labs can connect internal systems through their API or database, or build a small integration layer when none exists.',
-      },
-      {
-        q: 'Is AI required for every automation?',
-        a: 'No. Automation should use the simplest reliable solution. AI is only used where it adds value, for example understanding free-text messages or summarising information.',
-      },
-      {
-        q: 'Will AI replace my employees?',
-        a: 'That is rarely the goal. Automation usually takes over repetitive tasks and assists your team, so people can spend more time on customers, sales and decisions that need a human.',
-      },
-      {
-        q: 'Is my business data secure?',
-        a: 'Security depends on the architecture and the integrations involved. Every workflow is designed with access and data handling in mind: each connection gets only the permissions it needs, and automations can run on infrastructure you control when that is required.',
-      },
-      {
-        q: 'How much does automation cost?',
-        a: 'Every automation is different. Simple workflows may require only a small implementation, while systems involving multiple integrations or custom backend development require more work. The discovery call helps define the scope before proposing a solution.',
-      },
-      {
-        q: 'How long does an automation take?',
-        a: 'It depends on complexity and the number of integrations. A workflow connecting a few tools is much quicker than a system with custom backend development. You get a realistic timeline once the scope is clear.',
-      },
+      // TODO: minimum term and cancellation terms.
+      { q: 'Is there a minimum contract?', a: null },
     ],
   },
+  booking: {
+    title: 'Find out how many appointments you’re missing.',
+    lead: 'Pick a 20-minute slot. We’ll look at how calls and messages reach you today and tell you which plan fits your business.',
+    note: 'No commitment · 20-minute call',
+    calendarTitle: 'Calendar to book a 20-minute call with Agendia Labs',
+    formToggle: 'Prefer us to email you?',
+    contactLine: 'Rather talk now? Call us on {phone} or message us on {whatsapp}.',
+  },
   contact: {
-    title: "Your business probably has something that shouldn't be done manually.",
-    tagline: "Let's find it.",
-    secondaryCta: 'Tell Us What You Want to Automate',
-    reassurance: '20 minutes • No commitment',
     form: {
-      title: 'Tell us about your workflow',
+      title: 'We’ll get in touch',
       name: 'Name',
-      company: 'Business / Company',
+      company: 'Business',
       email: 'Email',
-      message: 'What would you like to automate?',
-      messagePlaceholder: 'For example: we reply to website leads by hand and often forget to follow up',
-      website: 'Website',
+      phone: 'Phone',
+      message: 'What would you like to improve?',
+      messagePlaceholder: 'For example: I miss calls while I’m with customers and can’t call everyone back',
       optional: '(optional)',
-      websitePlaceholder: 'yourcompany.com',
-      privacy: 'Your details are only used to reply to your request.',
+      privacy:
+        'Data controller: {owner}. Your details are only used to reply to your request and aren’t shared with third parties, other than the providers that run our services. You can access, correct or delete them. More in our {link}.',
+      privacyLink: 'privacy policy',
       sendAnother: 'Send another request',
     },
   },
   footer: {
-    tagline: 'AI automation and backend integrations for growing businesses.',
-    servicesTitle: 'Services',
-    services: ['AI lead automation', 'WhatsApp automation', 'CRM automation', 'n8n automation', 'API integrations', 'AI agents'],
-    companyTitle: 'Company',
-    company: { solutions: 'Solutions', demo: 'Automation demo', faq: 'FAQ', contact: 'Contact' },
-    contactTitle: 'Contact',
-    legal: '© {year} Agendia Labs. Technology names and logos belong to their owners and do not imply endorsement.',
+    custom: { text: 'Need another custom automation? {link}', link: 'Get in touch' },
+    legal: '© {year} Agendia Labs.',
+  },
+  legal: {
+    back: 'Back to home',
+    updated: 'Last updated: {date}',
+    identity: { owner: 'Owner', taxId: 'Tax ID (NIF)', address: 'Address', email: 'Email', phone: 'Phone' },
+    pages: {
+      notice: {
+        title: 'Legal notice',
+        description: 'Legal notice for Agendia Labs: who runs this website and the terms for using it.',
+        sections: [
+          {
+            heading: 'Website owner',
+            blocks: [
+              'In line with article 10 of Spanish Law 34/2002 on information society services and electronic commerce (LSSI-CE), these are the details of the owner of this website:',
+            ],
+            identity: true,
+          },
+          {
+            heading: 'Purpose',
+            blocks: [
+              'This website gives information about Agendia Labs’ services: an AI receptionist for appointment-based businesses, plus related online presence and automation services.',
+            ],
+          },
+          {
+            heading: 'Terms of use',
+            blocks: [
+              'Access to the website is free. By using it, you agree to do so lawfully and not to harm how it works or the systems that run it.',
+            ],
+          },
+          {
+            heading: 'Intellectual property',
+            blocks: [
+              'The text, design and logo of this website belong to its owner or are used with permission. They may not be copied or distributed without authorisation, except for personal use.',
+            ],
+          },
+          {
+            heading: 'Liability',
+            blocks: [
+              'We try to keep the information accurate and up to date, but it may contain errors. The sample conversations and calculations are illustrative and don’t guarantee any result.',
+            ],
+          },
+          {
+            heading: 'Third-party content',
+            blocks: [
+              'The website loads content from Google: the fonts and, when enabled, the booking calendar. These depend on Google and are covered by Google’s own terms.',
+            ],
+          },
+          {
+            heading: 'Data protection',
+            blocks: ['How we handle your personal data is explained in our {privacyLink}.'],
+          },
+          {
+            heading: 'Governing law',
+            blocks: ['This legal notice is governed by Spanish law.'],
+          },
+        ],
+      },
+      privacy: {
+        title: 'Privacy policy',
+        description: 'How Agendia Labs handles the personal data collected through this website.',
+        sections: [
+          {
+            heading: 'Data controller',
+            blocks: ['The controller of your personal data is:'],
+            identity: true,
+          },
+          {
+            heading: 'What data we process',
+            blocks: [
+              'We only process the data you give us:',
+              [
+                'Contact form: name, business, email, phone (optional) and your message.',
+                'Call booking: the details you enter when booking in the calendar, such as your name and email.',
+                'Emails and messages you send us directly.',
+              ],
+              'The website doesn’t use its own cookies or any analytics tools. When it loads fonts from Google Fonts and, when enabled, the Google calendar, your browser connects to Google’s servers, which receive your IP address. The service that hosts the website (GitHub Pages) also logs visitors’ IP addresses for security.',
+            ],
+          },
+          {
+            heading: 'What we use it for',
+            blocks: [
+              'To reply to your request, prepare and hold any call you book and, if you become a customer, manage our relationship. We don’t make automated decisions about you or send you marketing without your permission.',
+            ],
+          },
+          {
+            heading: 'Legal basis',
+            blocks: [
+              'We process your data because you ask us for information or a proposal: steps taken at your request before entering into a contract (article 6(1)(b) GDPR). If you become a customer, the basis is the contract.',
+            ],
+          },
+          {
+            heading: 'How long we keep it',
+            blocks: [
+              // TODO: retention period for people who don't become customers.
+              'We keep your data for as long as we need to deal with your request. If you don’t become a customer, we delete it within {todo} at most. If you do, we keep it for as long as the relationship lasts and then for the periods required by law.',
+            ],
+          },
+          {
+            heading: 'Who we share it with',
+            blocks: [
+              'We don’t sell your data or pass it to third parties, unless required by law. To run our services we use these providers, which may process it on our behalf:',
+              ['Google: email, calendar and fonts.', 'GitHub: website hosting.', 'Contact form handling: {formProvider}.'],
+              'Some of these providers may process data outside the European Economic Area. In that case, transfers rely on the EU-US Data Privacy Framework or on standard contractual clauses approved by the European Commission, as stated by each provider.',
+            ],
+          },
+          {
+            heading: 'Your rights',
+            blocks: [
+              'You can ask to access, correct or delete your data, object to or restrict how we process it, or ask for a portable copy. Email us at {email} saying which right you want to exercise.',
+              'If you think we haven’t handled your data properly, you can complain to the Spanish Data Protection Agency ({aepd}).',
+            ],
+          },
+          {
+            heading: 'Security',
+            blocks: [
+              'We take reasonable measures to protect your data, and only the people who need it to deal with your request can access it.',
+            ],
+          },
+          {
+            heading: 'Changes to this policy',
+            blocks: ['If we change this policy, we’ll publish the new version here with its update date.'],
+          },
+        ],
+      },
+    },
   },
   client: {
-    flow: { done: 'Done', running: 'Running', waiting: 'Waiting', statusRunning: 'Running', statusCompleted: 'Completed' },
-    roi: {
-      sentence: {
-        one: 'If {people} spends {hours} per day on repetitive administration:',
-        other: 'If {people} spend {hours} per day on repetitive administration:',
-      },
-      people: { one: '{n} employee', other: '{n} employees' },
-      hours: { one: '{n} hour', other: '{n} hours' },
-    },
     form: {
       errors: {
         name: 'Enter your name.',
         email: 'Enter your email address.',
-        emailInvalid: 'Enter a valid email address, like name@company.com.',
-        message: 'Tell us briefly what you would like to automate.',
+        emailInvalid: 'Enter a valid email address, like name@business.com.',
+        message: 'Tell us briefly what you’d like to improve.',
         network: 'Your request couldn’t be sent. Please try again or email us at {email}.',
       },
-      submit: 'Show Me What’s Possible',
+      submit: 'Send',
       sending: 'Sending...',
       sentTitle: 'Thanks, {name}.',
-      sentBody: "We'll review your workflow and get back to you at {email}.",
-      mailSubject: 'Automation request from {name}',
-    },
-    prefill: {
-      automate: 'I would like to automate: {task}.',
-      demo: 'Something like the automatic lead qualification and follow-up workflow.',
+      sentBody: 'We’ll get back to you at {email}.',
+      mailSubject: 'Request from {name} via the website',
     },
   },
 };
