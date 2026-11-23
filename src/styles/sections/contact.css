@@ -175,3 +175,7 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+.contact-form__trap {
+  display: none;
+}

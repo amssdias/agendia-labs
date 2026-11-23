@@ -149,13 +149,20 @@ Content-Type: application/json
   "email": "…",
   "phone": "…",
   "message": "…",
+  "_gotcha": "",
   "locale": "en",
   "page": "https://agendialabs.com/en/"
 }
 ```
 
+The form also sends an empty `_gotcha` field, a honeypot hidden from people: bots tend to fill it in, and
+Formspree drops those submissions.
+
 Any 2xx response shows the thank-you state. Anything else, or a network error, shows an error
 message pointing to the contact email.
+
+For **Formspree**: create a form, and use its `https://formspree.io/f/<id>` URL as the endpoint. Each request
+is emailed to the form's owner, and Formspree replies with JSON because the form sends `Accept: application/json`.
 
 For an **n8n webhook**: use a Webhook node with method `POST`, add your site's origin under
 *Options → Allowed Origins (CORS)*, and respond with a 200. The browser sends a CORS preflight
@@ -168,7 +175,6 @@ because of the JSON content type.
 - **Legal pages**: fill in `LEGAL_OWNER`, and have the legal texts reviewed.
 - **Social preview images**: `public/og-image-en.png` and `public/og-image-es.png` (1200×630), one per
   language. They show the hero headline, so update them if it changes.
-- Set `SITE_FORM_ENDPOINT`.
 
 ## Deployment
 
@@ -196,9 +202,10 @@ run by hand from the Actions tab.
 One-time setup:
 
 1. **Settings → Pages → Build and deployment → Source**: choose **GitHub Actions**.
-2. Optional: under **Settings → Secrets and variables → Actions → Variables**, add repository variables:
-   - `SITE_FORM_ENDPOINT`: contact form endpoint.
-   - `SITE_URL`: only if the public URL differs from what GitHub Pages reports.
+2. Optional: under **Settings → Secrets and variables → Actions → Variables**, add a `SITE_URL` repository
+   variable, only if the public URL differs from what GitHub Pages reports.
+
+The form endpoint is read from `.env` in the deploy too, so it doesn't need a repository variable.
 
 `SITE_URL` defaults to the URL GitHub Pages reports for the repository:
 

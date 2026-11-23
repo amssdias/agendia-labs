@@ -18,6 +18,9 @@ function field(
     </div>`;
 }
 
+// Hidden from people and filled in by bots; Formspree drops submissions where `_gotcha` has a value.
+const honeypot = html`<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="contact-form__trap">`;
+
 export function contactForm({ t, site, locale }: RenderContext) {
   const f = t.contact.form;
   // Without an endpoint the form degrades to the visitor's mail client, even without JS.
@@ -57,6 +60,7 @@ export function contactForm({ t, site, locale }: RenderContext) {
           html`<textarea id="contact-message" name="message" rows="4" required aria-describedby="contact-message-error" placeholder="${f.messagePlaceholder}" class="input input--textarea"></textarea>`,
           { error: true },
         )}
+        ${honeypot}
         <p class="form-error" role="alert" hidden data-form-error></p>
         <button type="submit" class="btn btn--primary btn--lg btn--block" data-form-submit>${t.client.form.submit}</button>
         <p class="contact-form__privacy">${fill(f.privacy, {

@@ -23,4 +23,4 @@ export const LEGAL_OWNER: { name: string; taxId: string; address: string } = { n
 export const LEGAL_UPDATED: string = '2026-11-23';
 
 /** Service that receives the contact form (e.g. 'Formspree'), listed as a recipient in the privacy policy. */
-export const FORM_PROVIDER: string = 'Gmail (Google)';
+export const FORM_PROVIDER: string = 'Formspree';
