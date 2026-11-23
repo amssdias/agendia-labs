@@ -34,7 +34,7 @@ public/                    Copied as-is: favicon, social preview images
 src/
   site.ts                  Locales, secondary pages, SiteConfig type and defaults
   content/
-    config.ts              Calendar URL, phone numbers, legal details, case study switch
+    config.ts              Calendar URL, phone numbers, legal details
     catalog.ts             Language-independent structure: section ids, keys, icons, ordering
   i18n/
     types.ts               Messages interface (the contract every language must satisfy)
@@ -124,13 +124,13 @@ The contact email is in `SITE_DEFAULTS` in `src/site.ts`.
 |---|---|
 | `CALENDAR_URL` | Google Calendar appointment schedule, embedded in the booking section (`#reservar`) with `?gv=true`. Empty shows the contact form there instead. |
 | `DEMO_PHONE` | Number of the demo receptionist, behind the "Call and try it" button. Empty hides the button. |
-| `SHOW_CASE_STUDY` | Shows the case study block. Off until the client has approved it. |
 | `CONTACT_PHONE` | Contact number, shown with call and WhatsApp links in the footer, the booking section and the legal notice. Empty hides them. |
 | `LEGAL_OWNER` | Name, tax ID (NIF) and address of the website owner, for the legal notice, the privacy policy and the notice under the form. |
 | `LEGAL_UPDATED` | Date of the last change to the legal pages, as `YYYY-MM-DD`. |
 | `FORM_PROVIDER` | Service that receives the contact form, listed as a recipient in the privacy policy. |
 
-Empty legal details show as a highlighted `TODO` on the page, so they can't go unnoticed.
+Empty legal details are left out of the page, and the owner name falls back to "Agendia Labs". The LSSI
+requires the name, tax ID and address, so fill them in before relying on the legal notice.
 
 Every booking button links to `#reservar` and carries a `data-cta` attribute (`reservar`, `llamar-demo`,
 `ver-plan` with `data-plan`) for click tracking once analytics is added.
@@ -165,8 +165,7 @@ because of the JSON content type.
 
 - **Page settings**: fill in `CALENDAR_URL` and `DEMO_PHONE` in `src/content/config.ts`.
 - **FAQ**: write the answers left as `null` in both language files.
-- **Legal pages**: fill in `LEGAL_OWNER`, `LEGAL_UPDATED` and `FORM_PROVIDER`, and the retention period
-  (`{todo}` in the privacy policy of each language file). Have the texts reviewed before publishing.
+- **Legal pages**: fill in `LEGAL_OWNER`, and have the legal texts reviewed.
 - **Social preview images**: `public/og-image-en.png` and `public/og-image-es.png` (1200×630), one per
   language. They show the hero headline, so update them if it changes.
 - Set `SITE_FORM_ENDPOINT`.

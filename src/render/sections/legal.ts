@@ -1,18 +1,16 @@
 import { CONTACT_PHONE, FORM_PROVIDER, LEGAL_OWNER, LEGAL_UPDATED } from '../../content/config.ts';
 import { localePath, type PageKey } from '../../site.ts';
-import { orTodo, telHref } from '../components.ts';
+import { ownerName, telHref } from '../components.ts';
 import type { RenderContext } from '../context.ts';
 import { fill, html, type HtmlValue } from '../html.ts';
 import { icon } from '../icon.ts';
 
 function identity({ t, site }: RenderContext) {
   const i = t.legal.identity;
-  const rows: [string, HtmlValue][] = [
-    [i.owner, orTodo(LEGAL_OWNER.name)],
-    [i.taxId, orTodo(LEGAL_OWNER.taxId)],
-    [i.address, orTodo(LEGAL_OWNER.address)],
-    [i.email, html`<a href="mailto:${site.email}">${site.email}</a>`],
-  ];
+  const rows: [string, HtmlValue][] = [[i.owner, ownerName()]];
+  if (LEGAL_OWNER.taxId) rows.push([i.taxId, LEGAL_OWNER.taxId]);
+  if (LEGAL_OWNER.address) rows.push([i.address, LEGAL_OWNER.address]);
+  rows.push([i.email, html`<a href="mailto:${site.email}">${site.email}</a>`]);
   if (CONTACT_PHONE) rows.push([i.phone, html`<a href="${telHref(CONTACT_PHONE)}">${CONTACT_PHONE}</a>`]);
   return html`<dl class="legal__identity">${rows.map(([term, value]) => html`<div><dt>${term}</dt><dd>${value}</dd></div>`)}</dl>`;
 }
@@ -25,18 +23,16 @@ export function legalPage(ctx: RenderContext, page: PageKey) {
   const copy = t.legal.pages[page];
   const slots = {
     email: html`<a href="mailto:${site.email}">${site.email}</a>`,
-    formProvider: orTodo(FORM_PROVIDER),
+    formProvider: FORM_PROVIDER,
     privacyLink: html`<a href="${localePath(site, locale, 'privacy')}">${t.legal.pages.privacy.title.toLocaleLowerCase(locale)}</a>`,
     aepd: html`<a href="https://www.aepd.es" rel="noopener">www.aepd.es</a>`,
-    todo: orTodo(''),
   };
-  const updated = LEGAL_UPDATED ? formatDate(locale, LEGAL_UPDATED) : orTodo('');
   return html`
 <main id="main" class="legal">
   <div class="container legal__inner">
     <a href="${localePath(site, locale)}" class="legal__back">${icon('arrow-left')}${t.legal.back}</a>
     <h1 class="legal__title">${copy.title}</h1>
-    <p class="legal__updated">${fill(t.legal.updated, { date: updated })}</p>
+    ${LEGAL_UPDATED && html`<p class="legal__updated">${fill(t.legal.updated, { date: formatDate(locale, LEGAL_UPDATED) })}</p>`}
     ${copy.sections.map(
       section => html`
     <section class="legal__section">

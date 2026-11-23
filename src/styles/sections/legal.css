@@ -87,13 +87,3 @@
   margin: 0;
   overflow-wrap: anywhere;
 }
-
-/* Legal details still to be filled in. */
-.todo {
-  padding: 1px 6px;
-  border-radius: 4px;
-  background: #fef3c7;
-  font-family: var(--font-mono);
-  font-size: 0.85em;
-  color: #92400e;
-}

@@ -28,8 +28,8 @@ export interface FaqEntry {
 }
 
 /**
- * A paragraph, or a list when it is an array. Placeholders: `{email}`, `{formProvider}`, `{privacyLink}`,
- * `{aepd}` (link to the Spanish data protection authority) and `{todo}` (a highlighted gap still to fill in).
+ * A paragraph, or a list when it is an array. Placeholders: `{email}`, `{formProvider}`, `{privacyLink}`
+ * and `{aepd}` (link to the Spanish data protection authority).
  */
 export type LegalBlock = string | string[];
 
@@ -103,11 +103,6 @@ export interface Messages {
     items: Record<PlanKey, { title: string; audience: string; features: string[] }>;
     extra: { badge: string; title: string; text: string };
     note: string;
-  };
-  caseStudy: {
-    eyebrow: string;
-    title: string;
-    text: string;
   };
   faq: {
     title: string;

@@ -17,7 +17,7 @@ export const es: Messages = {
     knowsAbout: ['Recepcionista con IA', 'Atención de llamadas', 'Reservas por WhatsApp', 'Gestión de citas', 'SEO local'],
   },
   common: {
-    book: 'Reserva 20 minutos',
+    book: 'Reserva 15 minutos',
     step: 'Paso',
     home: 'Inicio de Agendia Labs',
     mainNav: 'Principal',
@@ -35,7 +35,7 @@ export const es: Messages = {
     lead: 'Una recepcionista con IA que contesta llamadas y WhatsApp a cualquier hora y da citas en tu agenda. Tú sigues trabajando.',
     sectors: 'Para talleres, clínicas veterinarias, fisioterapia y cualquier negocio que trabaje con cita.',
     demoCta: 'Llama y pruébala',
-    note: 'Sin compromiso · Llamada de 20 minutos',
+    note: 'Sin compromiso · Llamada de 15 minutos',
     preview: {
       label: 'Ejemplo: una llamada fuera de horario',
       call: { title: 'Llamada atendida', detail: '21:47 · Quiere cita esta semana' },
@@ -157,13 +157,7 @@ export const es: Messages = {
       title: 'Presencia digital',
       text: 'Web, ficha de Google y SEO local, para que te encuentren cuando buscan un negocio como el tuyo cerca.',
     },
-    note: 'Cada negocio es distinto. Te recomendamos el plan en una llamada de 20 minutos.',
-  },
-  caseStudy: {
-    eyebrow: 'Un caso',
-    title: 'Taller en Getafe — web y recepcionista de voz',
-    // TODO: escribir el caso cuando el cliente dé permiso. Sin cifras.
-    text: 'TODO',
+    note: 'Cada negocio es distinto. Te recomendamos el plan en una llamada de 15 minutos.',
   },
   faq: {
     title: 'Preguntas frecuentes',
@@ -171,31 +165,39 @@ export const es: Messages = {
     items: [
       {
         q: '¿Suena a robot?',
-        a: 'Habla con una voz natural, pero es una IA y no se hace pasar por una persona. Lo mejor es que la escuches tú: en la llamada de 20 minutos te la enseñamos.',
+        a: 'Habla con una voz natural, pero es una IA y no se hace pasar por una persona. Lo mejor es que la escuches tú: en la llamada de 15 minutos te la enseñamos.',
       },
       {
         q: '¿Qué pasa si no sabe responder?',
         a: 'No se inventa la respuesta. Te pasa la llamada o te envía un aviso con los datos del cliente y lo que necesita, para que le contestes tú.',
       },
-      // TODO: con qué agendas funciona.
-      { q: '¿Funciona con mi agenda actual?', a: null },
-      // TODO: si se mantiene el número del negocio (desvío de llamadas, número nuevo...).
-      { q: '¿Tengo que cambiar de número?', a: null },
-      // TODO: plazo real de puesta en marcha.
-      { q: '¿Cuánto tarda en estar lista?', a: null },
+      {
+        q: '¿Funciona con mi agenda actual?',
+        a: 'Ahora mismo trabajamos con Google Calendar. Si usas otra agenda o un programa de tu sector, cuéntanoslo en la llamada y vemos si se puede conectar.',
+      },
+      {
+        q: '¿Tengo que cambiar de número?',
+        a: 'No. Puedes mantener tu número y desviar las llamadas a la recepcionista (por ejemplo, cuando no contestas o cuando comunica), o usar un número nuevo solo para ella. Tú eliges.',
+      },
+      {
+        q: '¿Cuánto tarda en estar lista?',
+        a: 'Depende de cada negocio, pero cuenta con un mínimo de una semana. En la llamada de 15 minutos te damos un plazo concreto.',
+      },
       {
         q: '¿Qué pasa con los datos de mis clientes?',
         a: 'Se tratan conforme al RGPD y solo se usan para atender a tus clientes y gestionar sus citas. En la llamada te contamos dónde se guardan y quién tiene acceso.',
       },
-      // TODO: condiciones de permanencia y baja.
-      { q: '¿Hay permanencia?', a: null },
+      {
+        q: '¿Hay permanencia?',
+        a: 'No. El servicio es mensual y puedes darte de baja cuando quieras, avisando con 30 días de antelación.',
+      },
     ],
   },
   booking: {
     title: 'Descubre cuántas citas estás perdiendo.',
-    lead: 'Elige un hueco de 20 minutos. Vemos cómo te llegan hoy las llamadas y los mensajes, y te decimos qué plan encaja con tu negocio.',
-    note: 'Sin compromiso · Llamada de 20 minutos',
-    calendarTitle: 'Calendario para reservar una llamada de 20 minutos con Agendia Labs',
+    lead: 'Elige un hueco de 15 minutos. Vemos cómo te llegan hoy las llamadas y los mensajes, y te decimos qué plan encaja con tu negocio.',
+    note: 'Sin compromiso · Llamada de 15 minutos',
+    calendarTitle: 'Calendario para reservar una llamada de 15 minutos con Agendia Labs',
     formToggle: '¿Prefieres que te escribamos?',
     contactLine: '¿Prefieres hablar ya? Llámanos al {phone} o escríbenos por {whatsapp}.',
   },
@@ -311,8 +313,7 @@ export const es: Messages = {
           {
             heading: 'Cuánto tiempo los guardamos',
             blocks: [
-              // TODO: plazo de conservación si no llega a ser cliente.
-              'Guardamos tus datos el tiempo necesario para atender tu solicitud. Si no llegas a ser cliente, los borramos en un plazo máximo de {todo}. Si eres cliente, los guardamos mientras dure la relación y, después, durante los plazos que marque la ley.',
+              'Guardamos tus datos el tiempo necesario para atender tu solicitud. Si no llegas a ser cliente, los borramos en un plazo máximo de 12 meses. Si eres cliente, los guardamos mientras dure la relación y, después, durante los plazos que marque la ley.',
             ],
           },
           {

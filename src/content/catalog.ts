@@ -9,7 +9,6 @@ export const SECTIONS = {
   how: 'como-funciona',
   sectors: 'sectores',
   plans: 'planes',
-  caseStudy: 'caso',
   faq: 'faq',
   booking: 'reservar',
 } as const;

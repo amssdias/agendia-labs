@@ -1,6 +1,5 @@
-import { LEGAL_OWNER } from '../../content/config.ts';
 import { localePath } from '../../site.ts';
-import { orTodo } from '../components.ts';
+import { ownerName } from '../components.ts';
 import type { RenderContext } from '../context.ts';
 import { fill, html } from '../html.ts';
 import { icon } from '../icon.ts';
@@ -61,7 +60,7 @@ export function contactForm({ t, site, locale }: RenderContext) {
         <p class="form-error" role="alert" hidden data-form-error></p>
         <button type="submit" class="btn btn--primary btn--lg btn--block" data-form-submit>${t.client.form.submit}</button>
         <p class="contact-form__privacy">${fill(f.privacy, {
-          owner: orTodo(LEGAL_OWNER.name),
+          owner: ownerName(),
           link: html`<a href="${localePath(site, locale, 'privacy')}">${f.privacyLink}</a>`,
         })}</p>
       </form>

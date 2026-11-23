@@ -1,4 +1,4 @@
-import { CALENDAR_URL, DEMO_PHONE } from '../content/config.ts';
+import { CALENDAR_URL, DEMO_PHONE, LEGAL_OWNER } from '../content/config.ts';
 import { SECTIONS } from '../content/catalog.ts';
 import { html, type HtmlValue, type SafeHtml } from './html.ts';
 import { icon } from './icon.ts';
@@ -22,8 +22,8 @@ export const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, '')}`;
 
 export const whatsappHref = (phone: string) => `https://wa.me/${phone.replace(/\D/g, '')}`;
 
-/** A legal detail still to be filled in shows as a highlighted TODO, so it can't go unnoticed. */
-export const orTodo = (value: string): HtmlValue => value || html`<mark class="todo">TODO</mark>`;
+/** Name shown as website owner and data controller; the brand stands in until the legal name is set. */
+export const ownerName = () => LEGAL_OWNER.name || 'Agendia Labs';
 
 export function demoCallLink(label: string, className: string): SafeHtml | '' {
   if (!DEMO_PHONE) return '';

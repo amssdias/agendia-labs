@@ -28,7 +28,7 @@ export function booking(ctx: RenderContext) {
     ${CALENDAR_URL
       ? html`
     <div class="booking__calendar">
-      <iframe src="${CALENDAR_URL}?gv=true" title="${b.calendarTitle}" width="100%" height="650" loading="lazy" class="booking__iframe"></iframe>
+      <iframe src="${CALENDAR_URL}?gv=true&hl=${ctx.locale}" title="${b.calendarTitle}" width="100%" height="650" loading="lazy" class="booking__iframe"></iframe>
     </div>
     <details class="booking__alt">
       <summary class="booking__toggle">${b.formToggle}</summary>

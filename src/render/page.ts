@@ -3,7 +3,6 @@ import { absoluteUrl, DEFAULT_LOCALE, LOCALES, pageRoute, type Locale, type Page
 import type { RenderContext } from './context.ts';
 import { html, jsonScript } from './html.ts';
 import { booking } from './sections/booking.ts';
-import { caseStudy } from './sections/case-study.ts';
 import { faq } from './sections/faq.ts';
 import { footer, mobileBar } from './sections/footer.ts';
 import { header, pageHeader } from './sections/header.ts';
@@ -19,7 +18,7 @@ const answeredFaq = (t: Messages) => t.faq.items.filter((item): item is { q: str
 
 const faqSection = (ctx: RenderContext) => faq({ site: ctx.site, t: { faq: { ...ctx.t.faq, items: answeredFaq(ctx.t) } } });
 
-const MAIN_SECTIONS = [hero, problem, how, sectors, plans, caseStudy, faqSection, booking];
+const MAIN_SECTIONS = [hero, problem, how, sectors, plans, faqSection, booking];
 
 const ogImage = (ctx: RenderContext) => absoluteUrl(ctx.site, `og-image-${ctx.locale}.png`);
 

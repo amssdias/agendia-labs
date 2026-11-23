@@ -17,7 +17,7 @@ export const en: Messages = {
     knowsAbout: ['AI receptionist', 'Call answering', 'WhatsApp booking', 'Appointment scheduling', 'Local SEO'],
   },
   common: {
-    book: 'Book 20 minutes',
+    book: 'Book 15 minutes',
     step: 'Step',
     home: 'Agendia Labs home',
     mainNav: 'Main',
@@ -35,7 +35,7 @@ export const en: Messages = {
     lead: 'An AI receptionist that answers calls and WhatsApp at any hour and books appointments into your calendar. You keep working.',
     sectors: 'For garages, vet clinics, physiotherapy and any business that works by appointment.',
     demoCta: 'Call and try it',
-    note: 'No commitment · 20-minute call',
+    note: 'No commitment · 15-minute call',
     preview: {
       label: 'Example: a call after hours',
       call: { title: 'Call answered', detail: '21:47 · Wants an appointment this week' },
@@ -157,13 +157,7 @@ export const en: Messages = {
       title: 'Online presence',
       text: 'Website, Google Business Profile and local SEO, so people find you when they search for a business like yours nearby.',
     },
-    note: 'Every business is different. We’ll recommend a plan on a 20-minute call.',
-  },
-  caseStudy: {
-    eyebrow: 'A case study',
-    title: 'Garage in Getafe — website and voice receptionist',
-    // TODO: write the case once the client gives permission. No figures.
-    text: 'TODO',
+    note: 'Every business is different. We’ll recommend a plan on a 15-minute call.',
   },
   faq: {
     title: 'Frequently asked questions',
@@ -171,31 +165,39 @@ export const en: Messages = {
     items: [
       {
         q: 'Does it sound like a robot?',
-        a: 'It speaks with a natural voice, but it’s an AI and doesn’t pretend to be a person. The best way to judge is to hear it yourself: we’ll show it to you on the 20-minute call.',
+        a: 'It speaks with a natural voice, but it’s an AI and doesn’t pretend to be a person. The best way to judge is to hear it yourself: we’ll show it to you on the 15-minute call.',
       },
       {
         q: 'What happens if it doesn’t know the answer?',
         a: 'It doesn’t make things up. It puts the call through to you or sends you an alert with the customer’s details and what they need, so you can reply yourself.',
       },
-      // TODO: which calendars it works with.
-      { q: 'Does it work with my current calendar?', a: null },
-      // TODO: whether the business keeps its number (call forwarding, new number...).
-      { q: 'Do I need to change my phone number?', a: null },
-      // TODO: real set-up time.
-      { q: 'How long does it take to set up?', a: null },
+      {
+        q: 'Does it work with my current calendar?',
+        a: 'Right now we work with Google Calendar. If you use another calendar or software specific to your sector, tell us on the call and we’ll see whether it can be connected.',
+      },
+      {
+        q: 'Do I need to change my phone number?',
+        a: 'No. You can keep your number and forward calls to the receptionist (for example, when you don’t answer or the line is busy), or use a new number just for it. It’s your choice.',
+      },
+      {
+        q: 'How long does it take to set up?',
+        a: 'It depends on the business, but allow at least a week. We’ll give you a specific timeframe on the 15-minute call.',
+      },
       {
         q: 'What happens to my customers’ data?',
         a: 'It’s handled in line with the GDPR and only used to look after your customers and manage their appointments. On the call we’ll explain where it’s stored and who has access.',
       },
-      // TODO: minimum term and cancellation terms.
-      { q: 'Is there a minimum contract?', a: null },
+      {
+        q: 'Is there a minimum contract?',
+        a: 'No. The service is monthly and you can cancel whenever you like, with 30 days’ notice.',
+      },
     ],
   },
   booking: {
     title: 'Find out how many appointments you’re missing.',
-    lead: 'Pick a 20-minute slot. We’ll look at how calls and messages reach you today and tell you which plan fits your business.',
-    note: 'No commitment · 20-minute call',
-    calendarTitle: 'Calendar to book a 20-minute call with Agendia Labs',
+    lead: 'Pick a 15-minute slot. We’ll look at how calls and messages reach you today and tell you which plan fits your business.',
+    note: 'No commitment · 15-minute call',
+    calendarTitle: 'Calendar to book a 15-minute call with Agendia Labs',
     formToggle: 'Prefer us to email you?',
     contactLine: 'Rather talk now? Call us on {phone} or message us on {whatsapp}.',
   },
@@ -311,8 +313,7 @@ export const en: Messages = {
           {
             heading: 'How long we keep it',
             blocks: [
-              // TODO: retention period for people who don't become customers.
-              'We keep your data for as long as we need to deal with your request. If you don’t become a customer, we delete it within {todo} at most. If you do, we keep it for as long as the relationship lasts and then for the periods required by law.',
+              'We keep your data for as long as we need to deal with your request. If you don’t become a customer, we delete it within 12 months at most. If you do, we keep it for as long as the relationship lasts and then for the periods required by law.',
             ],
           },
           {
