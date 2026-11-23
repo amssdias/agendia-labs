@@ -47,12 +47,12 @@ function initActiveLink() {
   document.querySelectorAll('main > section[id]').forEach(section => observer.observe(section));
 }
 
-/** Sticky "book a call" bar on phones: shown after the hero, hidden near the contact section. */
-function initMobileBar() {
+/** Sticky booking bar on phones: shown after the hero, hidden near the booking section. */
+function initMobileBar(endId: string) {
   const bar = document.querySelector<HTMLElement>('[data-mobile-bar]');
   const hero = document.getElementById('hero');
-  const contact = document.getElementById('contact');
-  if (!bar || !hero || !contact) return (_menuOpen: boolean) => {};
+  const end = document.getElementById(endId);
+  if (!bar || !hero || !end) return (_menuOpen: boolean) => {};
 
   const state = { pastHero: false, nearEnd: false, menuOpen: false };
   const update = () => {
@@ -68,7 +68,7 @@ function initMobileBar() {
   new IntersectionObserver(([entry]) => {
     state.nearEnd = entry.isIntersecting || entry.boundingClientRect.top < 0;
     update();
-  }).observe(contact);
+  }).observe(end);
   media.mobile.addEventListener('change', update);
 
   return (menuOpen: boolean) => {
@@ -77,8 +77,9 @@ function initMobileBar() {
   };
 }
 
-export function initHeader() {
-  const setMenuOpen = initMobileBar();
+/** `endId` is the section near which the mobile booking bar hides. */
+export function initHeader(endId: string) {
+  const setMenuOpen = initMobileBar(endId);
   initActiveLink();
   initMenu(setMenuOpen);
 }

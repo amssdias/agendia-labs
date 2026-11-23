@@ -2,8 +2,13 @@ import type { RenderContext } from '../context.ts';
 import { fill, html } from '../html.ts';
 import { icon } from '../icon.ts';
 
+/** Takes only the answered questions. */
+type FaqContext = Pick<RenderContext, 'site'> & {
+  t: { faq: Pick<RenderContext['t']['faq'], 'title' | 'intro'> & { items: { q: string; a: string }[] } };
+};
+
 // Native <details name="faq"> gives an exclusive accordion that works without JS.
-export function faq({ t, site }: RenderContext) {
+export function faq({ t, site }: FaqContext) {
   return html`
 <section id="faq" class="section section--bordered" aria-labelledby="faq-title">
   <div class="container faq">

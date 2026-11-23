@@ -9,6 +9,22 @@ export const DEFAULT_LOCALE: Locale = 'en';
 
 export const isLocale = (value: string): value is Locale => (LOCALES as readonly string[]).includes(value);
 
+/**
+ * Secondary pages and their folder under each locale. Each one needs an entry shell at
+ * <locale>/<folder>/index.html.
+ */
+export const PAGES = {
+  notice: { en: 'legal-notice', es: 'aviso-legal' },
+  privacy: { en: 'privacy', es: 'privacidad' },
+} as const satisfies Record<string, Record<Locale, string>>;
+export type PageKey = keyof typeof PAGES;
+
+export const pageKeyFor = (locale: Locale, folder: string) =>
+  (Object.keys(PAGES) as PageKey[]).find(key => PAGES[key][locale] === folder);
+
+/** Path of a page relative to the site root: 'es/' for the home page, 'es/aviso-legal/' for a secondary one. */
+export const pageRoute = (locale: Locale, page?: PageKey) => (page ? `${locale}/${PAGES[page][locale]}/` : `${locale}/`);
+
 export interface SiteConfig {
   /**
    * Public URL of the site root, without trailing slash. May include a path, e.g.
@@ -17,8 +33,6 @@ export interface SiteConfig {
   url: string;
   /** Path the site is served from, derived from `url`: '/' or '/agendia-labs/'. */
   basePath: string;
-  /** '#contact' scrolls to the form; any other URL (e.g. Cal.com) opens in a new tab. */
-  bookingUrl: string;
   /** Where the contact form POSTs its JSON. Empty falls back to a pre-filled mailto link. */
   formEndpoint: string;
   email: string;
@@ -27,9 +41,8 @@ export interface SiteConfig {
 export const SITE_DEFAULTS: SiteConfig = {
   url: 'https://agendialabs.com',
   basePath: '/',
-  bookingUrl: '#contact',
   formEndpoint: '',
-  email: 'hello@agendialabs.com',
+  email: 'agendialabs@gmail.com',
 };
 
 export const basePathFromUrl = (url: string) => new URL(url).pathname.replace(/\/?$/, '/');
@@ -37,7 +50,8 @@ export const basePathFromUrl = (url: string) => new URL(url).pathname.replace(/\
 /** Root-relative path inside the site, e.g. sitePath(site, 'en/') → '/agendia-labs/en/'. */
 export const sitePath = (site: Pick<SiteConfig, 'basePath'>, path = '') => site.basePath + path.replace(/^\//, '');
 
-export const localePath = (site: Pick<SiteConfig, 'basePath'>, locale: Locale) => sitePath(site, `${locale}/`);
+export const localePath = (site: Pick<SiteConfig, 'basePath'>, locale: Locale, page?: PageKey) =>
+  sitePath(site, pageRoute(locale, page));
 
 /** Absolute URL for canonical links, hreflang, Open Graph and the sitemap. */
 export const absoluteUrl = (site: Pick<SiteConfig, 'url' | 'basePath'>, path = '') =>

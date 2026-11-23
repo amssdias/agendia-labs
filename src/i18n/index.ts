@@ -5,4 +5,4 @@ import type { Messages } from './types.ts';
 
 export const messages: Record<Locale, Messages> = { en, es };
 
-export type { ClientMessages, Messages, Plural } from './types.ts';
+export type { ClientMessages, Messages } from './types.ts';

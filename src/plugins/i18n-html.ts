@@ -1,9 +1,11 @@
+import { relative, sep } from 'node:path';
 import type { Plugin, ViteDevServer } from 'vite';
 import { renderPage } from '../render/page.ts';
-import { absoluteUrl, isLocale, LOCALES, type SiteConfig } from '../site.ts';
+import { absoluteUrl, isLocale, LOCALES, pageKeyFor, type SiteConfig } from '../site.ts';
 
 const RENDER_MODULE = '/src/render/page.ts';
-const LOCALE_ENTRY = /[\\/](\w+)[\\/]index\.html$/;
+/** `<locale>/index.html` or `<locale>/<page folder>/index.html`, relative to the project root. */
+const PAGE_ENTRY = /^(\w+)\/(?:([\w-]+)\/)?index\.html$/;
 const RENDER_SOURCES = /[\\/]src[\\/](render|i18n|content|shared)[\\/]|[\\/]src[\\/]site\.ts$/;
 
 type RenderPage = typeof renderPage;
@@ -19,14 +21,19 @@ ${urls}
 }
 
 /**
- * Renders each /<locale>/index.html entry from the shared section templates at build time,
- * so every language ships as complete static HTML.
+ * Renders each /<locale>/index.html entry, and each secondary page under it, from the shared templates
+ * at build time, so every language ships as complete static HTML.
  */
 export function i18nHtml(site: SiteConfig): Plugin {
   let server: ViteDevServer | undefined;
+  let root = process.cwd();
 
   return {
     name: 'agendia-labs:i18n-html',
+
+    configResolved(config) {
+      root = config.root;
+    },
 
     configureServer(devServer) {
       server = devServer;
@@ -35,13 +42,15 @@ export function i18nHtml(site: SiteConfig): Plugin {
     transformIndexHtml: {
       order: 'pre',
       async handler(source, ctx) {
-        const locale = LOCALE_ENTRY.exec(ctx.filename)?.[1];
+        const [, locale, folder] = PAGE_ENTRY.exec(relative(root, ctx.filename).split(sep).join('/')) ?? [];
         if (!locale || !isLocale(locale)) return source;
+        const pageKey = folder ? pageKeyFor(locale, folder) : undefined;
+        if (folder && !pageKey) return source;
         // In dev, load the renderer through Vite so template and translation edits show up on reload.
         const render: RenderPage = server
           ? ((await server.ssrLoadModule(RENDER_MODULE)) as { renderPage: RenderPage }).renderPage
           : renderPage;
-        const page = render(locale, site);
+        const page = render(locale, site, pageKey);
         return source.replace('<!--app-head-->', page.head).replace('<!--app-body-->', page.body);
       },
     },

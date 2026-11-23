@@ -1,15 +1,16 @@
-import { NAV_SECTIONS } from '../../content/catalog.ts';
-import { LOCALE_NAMES, LOCALES, localePath } from '../../site.ts';
-import { bookLink, logoMark } from '../components.ts';
+import { NAV, SECTIONS } from '../../content/catalog.ts';
+import { LOCALE_NAMES, LOCALES, localePath, type PageKey } from '../../site.ts';
+import { bookingLink, logoMark } from '../components.ts';
 import type { RenderContext } from '../context.ts';
 import { html } from '../html.ts';
 import { icon } from '../icon.ts';
 
-function languageSwitch({ locale, t, site }: RenderContext, modifier = '') {
+/** Links to the same page in each language. */
+function languageSwitch({ locale, t, site }: RenderContext, page?: PageKey) {
   return html`
-    <nav class="lang-switch${modifier}" aria-label="${t.common.language}">
+    <nav class="lang-switch" aria-label="${t.common.language}">
       ${LOCALES.map(
-        l => html`<a href="${localePath(site, l)}" hreflang="${l}" lang="${l}" aria-label="${LOCALE_NAMES[l]}"${
+        l => html`<a href="${localePath(site, l, page)}" hreflang="${l}" lang="${l}" aria-label="${LOCALE_NAMES[l]}"${
           l === locale ? html` aria-current="true"` : ''
         }>${l.toUpperCase()}</a>`,
       )}
@@ -18,7 +19,7 @@ function languageSwitch({ locale, t, site }: RenderContext, modifier = '') {
 
 export function header(ctx: RenderContext) {
   const { t } = ctx;
-  const links = NAV_SECTIONS.map(id => ({ id, label: t.nav[id] }));
+  const links = NAV.map(key => ({ id: SECTIONS[key], label: t.nav[key] }));
   return html`
 <a class="skip-link" href="#main">${t.common.skipToContent}</a>
 <header class="site-header" data-header>
@@ -29,7 +30,7 @@ export function header(ctx: RenderContext) {
     </nav>
     <div class="site-header__actions">
       ${languageSwitch(ctx)}
-      ${bookLink(ctx, t.common.bookCall, 'btn--primary btn--sm btn--glow site-header__cta')}
+      ${bookingLink(t.common.book, 'btn--primary btn--sm btn--glow site-header__cta')}
       <button type="button" class="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="${t.common.menu}" data-menu-toggle>
         ${icon('list', { className: 'menu-button__open' })}${icon('x', { className: 'menu-button__close' })}
       </button>
@@ -38,8 +39,21 @@ export function header(ctx: RenderContext) {
   <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
     <nav class="container mobile-menu__inner" aria-label="${t.common.mainNav}">
       ${links.map(l => html`<a href="#${l.id}" class="mobile-menu__link">${l.label}</a>`)}
-      ${bookLink(ctx, t.common.bookCall, 'btn--primary btn--block mobile-menu__cta')}
+      ${bookingLink(t.common.book, 'btn--primary btn--block mobile-menu__cta')}
     </nav>
+  </div>
+</header>`;
+}
+
+/** Secondary pages: logo back to the home page and the language switch, without the section menu. */
+export function pageHeader(ctx: RenderContext, page: PageKey) {
+  const { t, site, locale } = ctx;
+  return html`
+<a class="skip-link" href="#main">${t.common.skipToContent}</a>
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a href="${localePath(site, locale)}" class="brand" aria-label="${t.common.home}">${logoMark()}Agendia Labs</a>
+    <div class="site-header__actions">${languageSwitch(ctx, page)}</div>
   </div>
 </header>`;
 }

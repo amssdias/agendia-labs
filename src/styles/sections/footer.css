@@ -4,48 +4,60 @@
   color: var(--color-on-dark-muted);
 }
 
-.site-footer__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  gap: 36px;
-  padding-top: 56px;
-  padding-bottom: 40px;
-}
-
-.site-footer__brand {
+.site-footer__bar {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 14.5px;
-  line-height: 1.5;
-}
-
-.site-footer__col {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 32px;
+  padding-top: 40px;
+  padding-bottom: 28px;
   font-size: 14.5px;
 }
 
-.site-footer__col a {
-  align-self: flex-start;
-  color: var(--color-on-dark-muted);
+.site-footer__custom {
+  flex: 1 1 280px;
+  color: var(--color-on-dark-soft);
 }
 
-.site-footer__col a:hover {
+.site-footer__bar a {
+  color: var(--color-blue-light);
+}
+
+.site-footer__bar a:hover {
   color: var(--color-on-dark);
 }
 
-.site-footer__heading {
-  font-weight: 600;
-  color: var(--color-on-dark);
+.site-footer__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
 }
 
 .site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 24px;
   padding-top: 20px;
   padding-bottom: 32px;
   border-top: 1px solid rgba(148, 163, 184, 0.12);
   font-size: 13.5px;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.site-footer__links a {
+  color: var(--color-on-dark-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer__links a:hover {
+  color: var(--color-on-dark);
 }
 
 /* Sticky booking bar on phones */

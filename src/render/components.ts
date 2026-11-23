@@ -1,19 +1,33 @@
-import type { RenderContext } from './context.ts';
+import { CALENDAR_URL, DEMO_PHONE, LEGAL_OWNER } from '../content/config.ts';
+import { SECTIONS } from '../content/catalog.ts';
 import { html, type HtmlValue, type SafeHtml } from './html.ts';
 import { icon } from './icon.ts';
 
 export const logoMark = (size: 'md' | 'sm' = 'md') =>
   html`<span class="logo-mark logo-mark--${size}" aria-hidden="true"><span></span></span>`;
 
+type Cta = { name: 'reservar' } | { name: 'ver-plan'; plan: string };
+
 /**
- * Every "book a call" button. An in-page booking URL scrolls to the form and focuses the
- * name field; an external one (e.g. a calendar tool) opens in a new tab without any JS.
+ * Every booking button jumps to the calendar section. `data-cta` names the click for analytics.
+ * Without a calendar the section holds the form, so the button also focuses its first field.
  */
-export function bookLink({ site }: RenderContext, label: HtmlValue, className: string, options: { arrow?: boolean } = {}): SafeHtml {
-  const external = !site.bookingUrl.startsWith('#');
-  return html`<a href="${site.bookingUrl}" class="btn ${className}"${
-    external ? html` target="_blank" rel="noopener"` : html` data-contact-focus="name"`
-  }>${label}${options.arrow ? icon('arrow-right') : ''}</a>`;
+export function bookingLink(label: HtmlValue, className: string, cta: Cta = { name: 'reservar' }): SafeHtml {
+  return html`<a href="#${SECTIONS.booking}" class="btn ${className}" data-cta="${cta.name}"${
+    cta.name === 'ver-plan' ? html` data-plan="${cta.plan}"` : ''
+  }${CALENDAR_URL ? '' : html` data-contact-focus="name"`}>${label}</a>`;
+}
+
+export const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, '')}`;
+
+export const whatsappHref = (phone: string) => `https://wa.me/${phone.replace(/\D/g, '')}`;
+
+/** Name shown as website owner and data controller; the brand stands in until the legal name is set. */
+export const ownerName = () => LEGAL_OWNER.name || 'Agendia Labs';
+
+export function demoCallLink(label: string, className: string): SafeHtml | '' {
+  if (!DEMO_PHONE) return '';
+  return html`<a href="${telHref(DEMO_PHONE)}" class="btn ${className}" data-cta="llamar-demo">${icon('phone')}${label}</a>`;
 }
 
 export function sectionIntro(id: string, title: string, lead?: string, modifier = ''): SafeHtml {

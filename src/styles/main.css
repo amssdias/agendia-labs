@@ -5,15 +5,12 @@
 
 @import './sections/header.css';
 @import './sections/hero.css';
-@import './sections/problems.css';
-@import './sections/transformation.css';
-@import './sections/services.css';
-@import './sections/solutions.css';
-@import './sections/automate.css';
-@import './sections/process.css';
-@import './sections/demo.css';
-@import './sections/value.css';
-@import './sections/first-call.css';
+@import './sections/problem.css';
+@import './sections/how.css';
+@import './sections/sectors.css';
+@import './sections/plans.css';
 @import './sections/faq.css';
 @import './sections/contact.css';
+@import './sections/booking.css';
+@import './sections/legal.css';
 @import './sections/footer.css';

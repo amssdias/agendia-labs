@@ -1,20 +1,8 @@
-import type { CaseKey, ChipKey, FlowKey, NavSection, ProblemKey, ProcessKey, ServiceKey } from '../content/catalog.ts';
-
-/** `{n}` is replaced with the formatted number; `one`/`other` follow Intl.PluralRules. */
-export interface Plural {
-  one: string;
-  other: string;
-}
+import type { NavKey, PainKey, PlanKey, SectorKey, StepKey } from '../content/catalog.ts';
+import type { PageKey } from '../site.ts';
 
 /** Strings the browser script needs at runtime. Serialised into each page as JSON. */
 export interface ClientMessages {
-  flow: { done: string; running: string; waiting: string; statusRunning: string; statusCompleted: string };
-  roi: {
-    /** `{people}` and `{hours}` placeholders, rendered bold. Plural form follows the number of people. */
-    sentence: Plural;
-    people: Plural;
-    hours: Plural;
-  };
   form: {
     errors: { name: string; email: string; emailInvalid: string; message: string; network: string };
     submit: string;
@@ -26,11 +14,30 @@ export interface ClientMessages {
     /** Subject of the mailto fallback. `{name}` placeholder. */
     mailSubject: string;
   };
-  prefill: {
-    /** `{task}` placeholder. */
-    automate: string;
-    demo: string;
-  };
+}
+
+export interface ChatLine {
+  from: 'client' | 'agent';
+  text: string;
+}
+
+/** `a: null` is an answer still to be written: the question stays off the page and out of the structured data. */
+export interface FaqEntry {
+  q: string;
+  a: string | null;
+}
+
+/**
+ * A paragraph, or a list when it is an array. Placeholders: `{email}`, `{formProvider}`, `{privacyLink}`
+ * and `{aepd}` (link to the Spanish data protection authority).
+ */
+export type LegalBlock = string | string[];
+
+export interface LegalPageCopy {
+  title: string;
+  description: string;
+  /** `identity: true` lists the owner's details after the section's blocks. */
+  sections: { heading: string; blocks: LegalBlock[]; identity?: boolean }[];
 }
 
 export interface Messages {
@@ -40,139 +47,106 @@ export interface Messages {
     ogTitle: string;
     ogDescription: string;
     ogImageAlt: string;
-    /** e.g. en_US. */
+    /** e.g. en_GB. */
     ogLocale: string;
   };
   schema: { description: string; knowsAbout: string[] };
   common: {
-    bookCall: string;
-    bookCallShort: string;
+    book: string;
+    /** Shown before the step number, e.g. "Step". */
+    step: string;
     home: string;
     mainNav: string;
     menu: string;
     language: string;
     skipToContent: string;
   };
-  nav: Record<NavSection, string>;
+  nav: Record<NavKey, string>;
   hero: {
-    eyebrow: string;
     title: string;
     lead: string;
-    secondaryCta: string;
-    reassurance: string;
-    flowLabel: string;
-    flowTitle: string;
-    flow: Record<FlowKey, { title: string; detail: string }>;
-    techIntro: string;
-    techListLabel: string;
-    restApis: string;
-  };
-  problems: {
-    title: string;
-    items: Record<ProblemKey, { title: string; text: string }>;
-    callout: string;
-    calloutCta: string;
-  };
-  transformation: {
-    title: string;
-    lead: string;
-    before: { title: string; badge: string; steps: string[] };
-    after: { title: string; badge: string; steps: string[] };
-  };
-  services: {
-    title: string;
-    lead: string;
-    problemLabel: string;
-    explore: string;
-    items: Record<ServiceKey, { title: string; problem: string; solution: string; result: string }>;
-  };
-  solutions: {
-    title: string;
-    tabsLabel: string;
-    cases: Record<CaseKey, { label: string; outcome: string; steps: string[] }>;
-    missing: { title: string; text: string; cta: string };
-  };
-  automate: {
-    title: string;
-    lead: string;
-    chipsLabel: string;
-    when: string;
-    result: string;
+    sectors: string;
+    demoCta: string;
     note: string;
-    cta: string;
-    chips: Record<ChipKey, { label: string; trigger: string; steps: string[]; result: string }>;
+    preview: {
+      label: string;
+      call: { title: string; detail: string };
+      booked: { title: string; detail: string };
+      notice: { title: string; detail: string };
+    };
   };
-  process: {
+  problem: {
     title: string;
-    lead: string;
-    /** `{n}` placeholder. */
-    stepLabel: string;
-    steps: Record<ProcessKey, { title: string; text: string }>;
-    ctaNote: string;
-  };
-  demo: {
-    title: string;
-    lead: string;
-    heading: string;
-    builtWith: string;
-    steps: string[];
-    /** Index in `steps` that shows the priority badges. */
-    priorityStep: number;
-    priorities: { high: string; medium: string; low: string };
-    outcome: string;
-    cta: string;
-    screenshotAlt: string;
-    caption: string;
-  };
-  value: {
-    title: string;
-    people: string;
-    hours: string;
-    fewerPeople: string;
-    morePeople: string;
-    fewerHours: string;
-    moreHours: string;
-    workingDays: string;
-    perMonth: string;
-    unit: string;
-    note: string;
+    items: Record<PainKey, { title: string; text: string }>;
+    exampleLabel: string;
+    example: string;
     disclaimer: string;
   };
-  firstCall: { title: string; paragraphs: string[]; cta: string; points: string[] };
+  how: {
+    title: string;
+    lead: string;
+    steps: Record<StepKey, { title: string; text: string }>;
+  };
+  sectors: {
+    title: string;
+    lead: string;
+    tabsLabel: string;
+    exampleLabel: string;
+    speakers: Record<ChatLine['from'], string>;
+    items: Record<SectorKey, { label: string; pain: string; conversation: ChatLine[] }>;
+  };
+  plans: {
+    title: string;
+    lead: string;
+    cta: string;
+    featuredBadge: string;
+    items: Record<PlanKey, { title: string; audience: string; features: string[] }>;
+    extra: { badge: string; title: string; text: string };
+    note: string;
+  };
   faq: {
     title: string;
     /** `{email}` placeholder, rendered as a mailto link. */
     intro: string;
-    items: { q: string; a: string }[];
+    items: FaqEntry[];
+  };
+  booking: {
+    title: string;
+    lead: string;
+    note: string;
+    calendarTitle: string;
+    formToggle: string;
+    /** Shown only with a contact phone. `{phone}` and `{whatsapp}` placeholders, rendered as links. */
+    contactLine: string;
   };
   contact: {
-    title: string;
-    tagline: string;
-    secondaryCta: string;
-    reassurance: string;
     form: {
       title: string;
       name: string;
       company: string;
       email: string;
+      phone: string;
       message: string;
       messagePlaceholder: string;
-      website: string;
       optional: string;
-      websitePlaceholder: string;
+      /** Basic data protection notice. `{owner}` and `{link}` placeholders; `{link}` shows `privacyLink`. */
       privacy: string;
+      privacyLink: string;
       sendAnother: string;
     };
   };
   footer: {
-    tagline: string;
-    servicesTitle: string;
-    services: string[];
-    companyTitle: string;
-    company: { solutions: string; demo: string; faq: string; contact: string };
-    contactTitle: string;
+    /** `{link}` placeholder, rendered as a mailto link with `custom.link` as its text. */
+    custom: { text: string; link: string };
     /** `{year}` placeholder. */
     legal: string;
+  };
+  legal: {
+    back: string;
+    /** `{date}` placeholder. */
+    updated: string;
+    identity: { owner: string; taxId: string; address: string; email: string; phone: string };
+    pages: Record<PageKey, LegalPageCopy>;
   };
   client: ClientMessages;
 }

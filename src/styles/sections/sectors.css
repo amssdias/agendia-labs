@@ -1,0 +1,124 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.tab .icon {
+  font-size: 18px;
+}
+
+.tab:hover {
+  border-color: var(--color-ink);
+}
+
+.tab[aria-selected='true'] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.sector-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  padding: clamp(24px, 3.5vw, 44px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-alt);
+}
+
+.sector-panel__pain {
+  max-width: 22em;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.chat {
+  min-width: 0;
+}
+
+.chat__label {
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.chat__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat__message {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 88%;
+}
+
+.chat__message--client {
+  align-self: flex-start;
+}
+
+.chat__message--agent {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.chat__speaker {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.chat__bubble {
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.chat__message--client .chat__bubble {
+  border: 1px solid var(--color-border);
+  border-bottom-left-radius: 4px;
+  background: var(--color-surface);
+}
+
+.chat__message--agent .chat__bubble {
+  border-bottom-right-radius: 4px;
+  background: var(--color-blue);
+  color: var(--color-on-dark);
+}
+
+@media (min-width: 900px) {
+  .sector-panel {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+  }
+}
